@@ -1,4 +1,5 @@
 ---
+import Article from "@/components/Article.astro";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 
@@ -13,25 +14,6 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"kiji">;
 
 const kiji = Astro.props;
-const { title, pubDate, updatedDate, heroImage, description, sources } =
-  kiji.data;
-const { Content } = await kiji.render();
 ---
 
-<ArticleLayout title={title} description={description} image={heroImage}>
-  <div class="time-container">
-    <time>
-      {pubDate.toDateString()}
-    </time>
-  </div>
-  <Content />
-  {
-    sources && (
-      <div class="sources">
-        {sources.map((source) => (
-          <a href={source}>{source}</a>
-        ))}
-      </div>
-    )
-  }
-</ArticleLayout>
+<Article {...kiji} />

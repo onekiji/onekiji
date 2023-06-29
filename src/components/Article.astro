@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+type Props = CollectionEntry<"kiji">;
+
+const kiji = Astro.props;
+
+const { title, description, heroImage, pubDate, sources } = kiji.data;
+const { Content } = await kiji.render();
+---
+
+<ArticleLayout title={title} description={description} image={heroImage}>
+  <div class="time-container">
+    <time>
+      {pubDate.toDateString()}
+    </time>
+  </div>
+  <Content />
+  {
+    sources && (
+      <div class="sources">
+        {sources.map((source) => (
+          <a href={source}>{source}</a>
+        ))}
+      </div>
+    )
+  }
+</ArticleLayout>
