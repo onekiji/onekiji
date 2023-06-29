@@ -41,6 +41,18 @@ html {
   font-family: "AtkinsonHyperlegible", sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    --white: #2c2c2c;
+    --whitergb: 44, 44, 44;
+    --black: #dcdcdc;
+    --blackrgb: 220, 220, 220;
+    --lightblack: #a9a9a9;
+    background-color: var(--white);
+    color: var(--black);
+  }
+}
+
 strong {
   font-family: "AtkinsonHyperlegibleBold", sans-serif;
 }
