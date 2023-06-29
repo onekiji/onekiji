@@ -13,9 +13,25 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"kiji">;
 
 const kiji = Astro.props;
-const { title, pubDate, updatedDate, heroImage, description } = kiji.data;
+const { title, pubDate, updatedDate, heroImage, description, sources } =
+  kiji.data;
+const { Content } = await kiji.render();
 ---
 
 <ArticleLayout title={title} description={description} image={heroImage}>
-  <h1>{title}</h1>
+  <div class="time-container">
+    <time>
+      {pubDate.toDateString()}
+    </time>
+  </div>
+  <Content />
+  {
+    sources && (
+      <div class="sources">
+        {sources.map((source) => (
+          <a href={source}>{source}</a>
+        ))}
+      </div>
+    )
+  }
 </ArticleLayout>

@@ -45,10 +45,30 @@ html {
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 main {
   padding-top: 24px;
   width: 61.8vw;
+}
+
+a,
+a:visited {
+  color: var(--black);
+  filter: brightness(2);
+  word-wrap: break-word;
+}
+
+a:hover {
+  filter: brightness(1);
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
