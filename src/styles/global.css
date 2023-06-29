@@ -35,6 +35,7 @@ html {
   --whitergb: 220, 220, 220;
   --black: #2c2c2c;
   --blackrgb: 44, 44, 44;
+  --lightblack: #4f4f4f;
   background-color: var(--white);
   color: var(--black);
   font-family: "AtkinsonHyperlegible", sans-serif;
@@ -58,8 +59,7 @@ main {
 
 a,
 a:visited {
-  color: var(--black);
-  filter: brightness(2);
+  color: var(--lightblack);
   word-wrap: break-word;
 }
 
