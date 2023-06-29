@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import FormatDate from "./FormatDate.astro";
 
 type Props = CollectionEntry<"kiji">;
 
@@ -12,9 +13,7 @@ const { Content } = await kiji.render();
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
-    <time>
-      {pubDate.toDateString()}
-    </time>
+    <FormatDate date={pubDate} />
   </div>
   <Content />
   {
