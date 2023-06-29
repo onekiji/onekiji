@@ -10,12 +10,16 @@ const archives = await getCollection("kiji");
   <ol>
     {
       archives.map((kiji) => (
-        <p>
-          <a href={kiji.id}>
-            <strong>{new Date(kiji.data.pubDate).toLocaleDateString()}</strong>{" "}
-            {kiji.data.title}
-          </a>
-        </p>
+        <li>
+          <p>
+            <a href={kiji.id}>
+              <strong>
+                {new Date(kiji.data.pubDate).toLocaleDateString()}
+              </strong>{" "}
+              {kiji.data.title}
+            </a>
+          </p>
+        </li>
       ))
     }
   </ol>
