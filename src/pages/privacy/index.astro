@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
+import FormatDate from "@/components/FormatDate.astro";
 
 const latestPrivacyPolicy = await getCollection("privacy").then(
   (collection) =>
@@ -15,5 +16,10 @@ const { Content } = await latestPrivacyPolicy.render();
   <p>
     The archive of all previous privacy policy can be checked at the
     <a href="/privacy/archive">archive page</a>.
+  </p>
+  <p>
+    Privacy policy was last updated on
+    <FormatDate date={new Date(latestPrivacyPolicy.slug)} />
+    and is valid until the next update.
   </p>
 </PageLayout>
