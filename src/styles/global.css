@@ -1,3 +1,29 @@
+@font-face {
+  font-family: "AtkinsonHyperlegible";
+  src: url("/fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "AtkinsonHyperlegibleBold";
+  src: url("/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "AtkinsonHyperlegibleItalic";
+  src: url("/fonts/AtkinsonHyperlegible-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "AtkinsonHyperlegibleBoldItalic";
+  src: url("/fonts/AtkinsonHyperlegible-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,4 +31,24 @@
 }
 
 html {
+  --white: #dcdcdc;
+  --black: #2c2c2c;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: "AtkinsonHyperlegible", sans-serif;
+}
+
+.font-bold {
+  font-family: "AtkinsonHyperlegibleBold", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+main {
+  padding-top: 24px;
+  width: 61.8vw;
 }
