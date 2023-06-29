@@ -61,10 +61,12 @@ a,
 a:visited {
   color: var(--lightblack);
   word-wrap: break-word;
+  text-decoration: none;
 }
 
 a:hover {
   filter: brightness(1);
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
