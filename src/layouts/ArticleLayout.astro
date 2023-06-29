@@ -1,6 +1,7 @@
 ---
 import "@/styles/article.scss";
 import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
   title: string;
@@ -24,5 +25,6 @@ const props = Astro.props;
         <slot />
       </article>
     </main>
+    <Footer />
   </body>
 </html>
