@@ -1,7 +1,13 @@
 ---
-import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import Article from "@/components/Article.astro";
+import { getCollection } from "astro:content";
+
+const latestPost = await getCollection("kiji").then(
+  (posts) =>
+    posts.sort((a, b) =>
+      new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1
+    )[0]
+);
 ---
 
-<ArticleLayout title="test" description="test">
-  <h1>My Article</h1>
-</ArticleLayout>
+{latestPost && <Article {...latestPost} />}
