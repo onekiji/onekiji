@@ -1,0 +1,21 @@
+---
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { getCollection, CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const kijis = await getCollection("kiji");
+  return kijis.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<"kiji">;
+
+const kiji = Astro.props;
+const { title, pubDate, updatedDate, heroImage, description } = kiji.data;
+---
+
+<ArticleLayout title={title} description={description} image={heroImage}>
+  <h1>{title}</h1>
+</ArticleLayout>
