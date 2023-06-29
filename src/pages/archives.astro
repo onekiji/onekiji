@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@/layouts/PageLayout.astro";
+
+const allKiji = await getCollection("kiji");
+---
+
+<PageLayout title="Archives - onekiji" description="Archive of past news">
+  <h1>Archives</h1>
+  <ol>
+    {
+      allKiji.map((kiji) => (
+        <p>
+          <a href={kiji.id}>
+            <strong>{new Date(kiji.data.pubDate).toLocaleDateString()}</strong>{" "}
+            {kiji.data.title}
+          </a>
+        </p>
+      ))
+    }
+  </ol>
+</PageLayout>
