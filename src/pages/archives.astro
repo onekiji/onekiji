@@ -7,20 +7,24 @@ const archives = await getCollection("kiji");
 
 <PageLayout title="Archives - One Kiji" description="Archive of past news">
   <h1>Archives</h1>
-  <ol>
+  <ul>
     {
       archives.map((kiji) => (
         <li>
           <p>
             <a href={kiji.id}>
-              <strong>
-                {new Date(kiji.data.pubDate).toLocaleDateString()}
-              </strong>{" "}
+              <strong>{new Date(kiji.slug).toLocaleDateString()}</strong> -
               {kiji.data.title}
             </a>
           </p>
         </li>
       ))
     }
-  </ol>
+  </ul>
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
 </PageLayout>

@@ -7,7 +7,7 @@ const latestPrivacyPolicy = await getCollection("privacy");
 ---
 
 <PageLayout title="Privacy Policy - One Kiji" description="">
-  <ol>
+  <ul>
     {
       latestPrivacyPolicy.map(({ data, slug }) => (
         <li>
@@ -19,5 +19,11 @@ const latestPrivacyPolicy = await getCollection("privacy");
         </li>
       ))
     }
-  </ol>
+  </ul>
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
 </PageLayout>

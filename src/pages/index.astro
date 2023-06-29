@@ -4,9 +4,7 @@ import { getCollection } from "astro:content";
 
 const latestPost = await getCollection("kiji").then(
   (posts) =>
-    posts.sort((a, b) =>
-      new Date(b.data.pubDate) > new Date(a.data.pubDate) ? 1 : -1
-    )[0]
+    posts.sort((a, b) => (new Date(b.slug) > new Date(a.slug) ? 1 : -1))[0]
 );
 ---
 

@@ -7,13 +7,13 @@ type Props = CollectionEntry<"kiji">;
 
 const kiji = Astro.props;
 
-const { title, description, heroImage, pubDate, sources } = kiji.data;
+const { title, description, heroImage, sources } = kiji.data;
 const { Content } = await kiji.render();
 ---
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
-    <FormatDate date={pubDate} />
+    <FormatDate date={new Date(kiji.slug)} />
   </div>
   <Content />
   {
