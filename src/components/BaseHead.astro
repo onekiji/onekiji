@@ -26,8 +26,14 @@ const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
+<!-- meta for articles -->
+<!-- <meta name="author" content={Astro.author} />
+<meta name="publisher" content={Astro.author} />
+<meta name="article:author" content={Astro.author} />
+<meta name="article:published_time" content={Astro.date} /> -->
+
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
