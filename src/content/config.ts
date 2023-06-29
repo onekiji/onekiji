@@ -17,4 +17,6 @@ const kiji = defineCollection({
   }),
 });
 
-export const collections = { kiji };
+const privacy = defineCollection({});
+
+export const collections = { kiji, privacy };
