@@ -14,11 +14,13 @@ const props = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-  <BaseHead
-    title={props.title}
-    description={props.description}
-    image={props.image}
-  />
+  <head>
+    <BaseHead
+      title={props.title}
+      description={props.description}
+      image={props.image}
+    /></head
+  >
   <body>
     <main>
       <article>
