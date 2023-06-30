@@ -19,9 +19,13 @@ const { Content } = await kiji.render();
   {
     sources && (
       <div class="sources">
-        {sources.map((source) => (
-          <a href={source}>{source}</a>
-        ))}
+        <ul>
+          {sources.map((source) => (
+            <li>
+              <a href={source}>{source}</a>
+            </li>
+          ))}
+        </ul>
       </div>
     )
   }
