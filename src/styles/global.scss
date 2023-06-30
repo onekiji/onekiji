@@ -43,6 +43,7 @@ html {
   background-color: var(--white);
   color: var(--black);
   font-family: "AtkinsonHyperlegible", sans-serif;
+  height: 100vh;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -63,14 +64,15 @@ strong {
 
 body {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
+  min-height: 100%;
 }
 
 main {
   width: 61.8vw;
+  flex: 1;
 }
 
 a,
