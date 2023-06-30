@@ -1,0 +1,27 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { getCollection, CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const kijis = await getCollection("privacy");
+  return kijis.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<"privacy">;
+
+const privacy = Astro.props;
+const title = `${privacy.slug} - Privacy Policy Archive`;
+
+const { Content } = await privacy.render();
+---
+
+<PageLayout
+  title={title}
+  description=`Archive of Privacy Policy from ${privacy.slug}`
+>
+  <h1>{title}</h1>
+  <Content />
+</PageLayout>
