@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
 
-const latestPrivacyPolicy = await getCollection("privacy");
+const latestPrivacyPolicy = await getCollection("privacy").then((collection) =>
+  collection.sort((a, b) => (new Date(a.slug) < new Date(b.slug) ? 1 : -1))
+);
 ---
 
 <PageLayout title="Privacy Policy - One Kiji" description="">
