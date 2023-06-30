@@ -66,10 +66,8 @@ main {
     --black: #dcdcdc;
     --blackrgb: 220, 220, 220;
     --lightblack: #b8b8b8;
+    background-color: var(--white);
     color: var(--black);
-  }
-  body {
-    background: linear-gradient(#151515, #2c2c2c);
   }
 }
 
