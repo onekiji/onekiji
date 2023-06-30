@@ -35,15 +35,22 @@
 }
 
 html {
-  --white: #dcdcdc;
-  --whitergb: 220, 220, 220;
-  --black: #2c2c2c;
-  --blackrgb: 44, 44, 44;
-  --lightblack: #424242;
+  --white: #fbfbfc;
+  --whitergb: 251, 251, 252;
+  --black: #5a5a5a;
+  --blackrgb: 90, 90, 90;
+  --darkwhite: #f2f2f7;
   background-color: var(--white);
   color: var(--black);
   font-family: "AtkinsonHyperlegible", sans-serif;
   height: 100vh;
+  background: linear-gradient(
+    90deg,
+    var(--white) 0%,
+    var(--darkwhite) 19.1%,
+    var(--darkwhite) 80.9%,
+    var(--white) 100%
+  );
 }
 
 body {
@@ -59,32 +66,18 @@ main {
   flex: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    --white: #2c2c2c;
-    --whitergb: 44, 44, 44;
-    --black: #dcdcdc;
-    --blackrgb: 220, 220, 220;
-    --lightblack: #b8b8b8;
-    background-color: var(--white);
-    color: var(--black);
-  }
-}
-
 strong {
   font-family: "AtkinsonHyperlegibleBold", sans-serif;
 }
 
 a,
 a:visited {
-  color: var(--lightblack);
+  color: var(--black);
   word-wrap: break-word;
-  text-decoration: none;
 }
 
 a:hover {
-  filter: brightness(1);
-  text-decoration: underline;
+  filter: brightness(2);
 }
 
 @media screen and (max-width: 768px) {
