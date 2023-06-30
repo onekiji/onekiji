@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
+import FormatDate from "@/components/FormatDate.astro";
 
 const archives = await getCollection("kiji");
 ---
@@ -13,8 +14,10 @@ const archives = await getCollection("kiji");
         <li>
           <p>
             <a href={kiji.slug}>
-              <strong>{new Date(kiji.slug).toLocaleDateString()}</strong> -
-              {kiji.data.title}
+              <strong>
+                <FormatDate date={new Date(kiji.slug)} />
+              </strong>
+              -&nbsp;{kiji.data.title}
             </a>
           </p>
         </li>
