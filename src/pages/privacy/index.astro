@@ -5,7 +5,7 @@ import FormatDate from "@/components/FormatDate.astro";
 
 const latestPrivacyPolicy = await getCollection("privacy").then(
   (collection) =>
-    collection.sort((a, b) => parseInt(b.slug) - parseInt(a.slug))[0]
+    collection.sort((a, b) => (new Date(a.slug) < new Date(b.slug) ? 1 : -1))[0]
 );
 
 const { Content } = await latestPrivacyPolicy.render();
