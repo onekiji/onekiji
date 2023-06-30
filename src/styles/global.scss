@@ -46,22 +46,6 @@ html {
   height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    --white: #2c2c2c;
-    --whitergb: 44, 44, 44;
-    --black: #dcdcdc;
-    --blackrgb: 220, 220, 220;
-    --lightblack: #b8b8b8;
-    background-color: var(--white);
-    color: var(--black);
-  }
-}
-
-strong {
-  font-family: "AtkinsonHyperlegibleBold", sans-serif;
-}
-
 body {
   display: flex;
   align-items: center;
@@ -73,6 +57,24 @@ body {
 main {
   width: 61.8vw;
   flex: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --white: #2c2c2c;
+    --whitergb: 44, 44, 44;
+    --black: #dcdcdc;
+    --blackrgb: 220, 220, 220;
+    --lightblack: #b8b8b8;
+    color: var(--black);
+  }
+  body {
+    background: linear-gradient(#151515, #2c2c2c);
+  }
+}
+
+strong {
+  font-family: "AtkinsonHyperlegibleBold", sans-serif;
 }
 
 a,
