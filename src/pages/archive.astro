@@ -12,7 +12,7 @@ const archives = await getCollection("kiji");
       archives.map((kiji) => (
         <li>
           <p>
-            <a href={kiji.id}>
+            <a href={kiji.slug}>
               <strong>{new Date(kiji.slug).toLocaleDateString()}</strong> -
               {kiji.data.title}
             </a>
