@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/PageLayout.astro"
 title: "About One Kiji"
-description: "One Kiji writes on the single most important piece of news published everyday."
+description: "One Kiji summarizes the single most important piece of news published everyday."
 ---
 
 # About One Kiji
