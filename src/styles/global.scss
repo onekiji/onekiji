@@ -15,7 +15,6 @@ html {
   color: var(--black);
   font-family: "Helvetica Neue", sans-serif;
   line-height: 1.5;
-  letter-spacing: 1.5;
   height: 100vh;
   background: linear-gradient(
     90deg,
@@ -24,6 +23,7 @@ html {
     var(--darkwhite) 80.9%,
     var(--white) 100%
   );
+  background-color: var(--darkwhite);
 }
 
 body {
