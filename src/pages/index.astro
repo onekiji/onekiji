@@ -8,4 +8,12 @@ const latestPost = await getCollection("kiji").then(
 );
 ---
 
-{latestPost && <Article {...latestPost} />}
+{
+  latestPost && (
+    <Article
+      {...latestPost}
+      title={`One Kiji`}
+      description="One Kiji summarizes the single most important piece of news published everyday."
+    />
+  )
+}

@@ -3,12 +3,22 @@ import type { CollectionEntry } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import FormatDate from "./FormatDate.astro";
 
-type Props = CollectionEntry<"kiji">;
+type Props = CollectionEntry<"kiji"> & {
+  title?: string;
+  description?: string;
+};
 
 const kiji = Astro.props;
 
-const { title, description, heroImage, sources } = kiji.data;
+const {
+  title: _title,
+  description: _description,
+  heroImage,
+  sources,
+} = kiji.data;
 const { Content } = await kiji.render();
+const title = kiji.title || _title;
+const description = kiji.description || _description;
 ---
 
 <ArticleLayout title={title} description={description} image={heroImage}>
