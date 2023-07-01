@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
+import { getTitleMd } from "@/util/markdown";
 
 const archives = await getCollection("kiji");
 ---
@@ -17,7 +18,7 @@ const archives = await getCollection("kiji");
               <strong>
                 <FormatDate date={new Date(kiji.slug)} />
               </strong>
-              -&nbsp;{kiji.data.title}
+              -&nbsp;{getTitleMd(kiji.body)}
             </a>
           </p>
         </li>

@@ -2,8 +2,6 @@ import { defineCollection, z } from "astro:content";
 
 const kiji = defineCollection({
   schema: z.object({
-    title: z.string(),
-    description: z.string(),
     updatedDate: z
       .string()
       .optional()
