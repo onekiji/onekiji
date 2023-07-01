@@ -12,10 +12,13 @@ const latestPrivacyPolicy = await getCollection("privacy").then((collection) =>
   <h1>Privacy Policy Archive</h1>
   <ul>
     {
-      latestPrivacyPolicy.map(({ data, slug }) => (
+      latestPrivacyPolicy.map(({ slug }) => (
         <li>
           <p>
-            <a href={`/privacy/${slug}`}>
+            <a
+              href={`/privacy/${slug}`}
+              aria-label={`Privacy policy archive from ${slug}`}
+            >
               <FormatDate date={new Date(slug)} />
             </a>
           </p>

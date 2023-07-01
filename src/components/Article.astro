@@ -30,9 +30,11 @@ const description = kiji.description || _description;
     sources && (
       <div class="sources">
         <ul>
-          {sources.map((source) => (
+          {sources.map((source, index) => (
             <li>
-              <a href={source}>{source}</a>
+              <a href={source} aria-label={`Source ${index + 1}`}>
+                {source}
+              </a>
             </li>
           ))}
         </ul>

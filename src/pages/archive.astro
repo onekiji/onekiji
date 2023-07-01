@@ -13,7 +13,7 @@ const archives = await getCollection("kiji");
       archives.map((kiji) => (
         <li>
           <p>
-            <a href={kiji.slug}>
+            <a href={kiji.slug} aria-label={`Archive from ${kiji.slug}`}>
               <strong>
                 <FormatDate date={new Date(kiji.slug)} />
               </strong>

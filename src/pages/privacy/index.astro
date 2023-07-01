@@ -11,11 +11,16 @@ const latestPrivacyPolicy = await getCollection("privacy").then(
 const { Content } = await latestPrivacyPolicy.render();
 ---
 
-<PageLayout title="Privacy Policy - One Kiji" description="">
+<PageLayout
+  title="Privacy Policy - One Kiji"
+  description="Privacy policy of One Kiji"
+>
   <Content />
   <p>
     The archive of all previous privacy policy can be checked at the
-    <a href="/privacy/archive">archive of the privacy policy pages</a>.
+    <a href="/privacy/archive" aria-label="Archive of One Kiji privacy policy"
+      >archive of the privacy policy pages</a
+    >.
   </p>
   <p>
     Privacy policy was last updated on
