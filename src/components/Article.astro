@@ -2,7 +2,11 @@
 import type { CollectionEntry } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import FormatDate from "./FormatDate.astro";
-import { getFirstParagraphMd, getTitleMd } from "@/util/markdown";
+import {
+  getFirstParagraphMd,
+  getTitleMd,
+  readingTimeMd,
+} from "@/util/markdown";
 
 type Props = CollectionEntry<"kiji"> & {
   title?: string;
@@ -15,12 +19,16 @@ const { heroImage, sources } = kiji.data;
 const { Content } = await kiji.render();
 const title = kiji.title || getTitleMd(kiji.body);
 const description = kiji.description || getFirstParagraphMd(kiji.body);
+const readingTime = readingTimeMd(kiji.body);
 ---
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
     <FormatDate date={new Date(kiji.slug)} />
   </div>
+  <p>
+    {readingTime + (readingTime > 1 ? " minutes read" : " minute read")}
+  </p>
   <Content />
   {
     sources && (
