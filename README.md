@@ -1,6 +1,6 @@
 # One Kiji
 
-![One Kiji](https://github.com/onekiji/onekiji/assets/69610953/d4bda29a-11e6-4e26-911f-7daf7583df1a)
+![One Kiji](./public/placeholder-social.png)
 
 One Kiji summarizes the single most important piece of news published everyday.
 
