@@ -7,38 +7,8 @@ import PageLayout from "@/layouts/PageLayout.astro";
   title="RSS Reader - One Kiji"
   description="Read news in our interface."
 >
-  <!-- <input
-    type="text"
-    placeholder="https://onekiji.com/feed.xml"
-    id="rss-input"
-    autofocus
-  />
-  <div id="feed">
-    <h1>Feed</h1>
-    <div id="feed-items"></div>
-  </div> -->
   <RssReader client:load />
 </PageLayout>
-<!-- <script>
-  import { z } from "zod";
-
-  const rssInput = document.getElementById("rss-input") as HTMLInputElement;
-  const feed = document.getElementById("feed") as HTMLDivElement;
-  const urlSchema = z.string().url();
-  rssInput.addEventListener("input", (e) => {
-    const url = rssInput.value;
-    if (urlSchema.safeParse(url).success) {
-      getFeed(url);
-      feed.classList.add("show");
-    } else {
-      feed.classList.remove("show");
-    }
-  });
-
-  async function getFeed(url: string) {
-    console.log(url);
-  }
-</script> -->
 <style is:global lang="scss">
   main {
     display: flex;
