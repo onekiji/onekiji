@@ -20,7 +20,8 @@
     "markdown-it": "^13.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanitize-html": "^2.11.0"
+    "sanitize-html": "^2.11.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "sass": "^1.63.6"
