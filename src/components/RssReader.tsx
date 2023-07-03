@@ -75,7 +75,7 @@ const RssReader = () => {
         onChange={(e) => setUrl(e.target.value)}
         placeholder="https://example.com/feed"
       />
-      <div id="feed" className={dataExists ? "expand" : ""} ref={feedRef}>
+      <div id="feed">
         <h1>{title}</h1>
         {feedItems.map((item, index) => (
           <div key={index} className="feed-item">
