@@ -1,12 +1,12 @@
 ---
 layout: "@/layouts/PageLayout.astro"
 title: "About One Kiji"
-description: "One Kiji summarizes the single most important piece of news published everyday."
+description: "One Kiji summarizes the single most important piece of news published every day."
 ---
 
 # About One Kiji
 
-One Kiji summarizes the single most important piece of news published everyday. 
+One Kiji summarizes the single most important piece of news published every day. 
 
 Consuming news shouldn't be distracting, and shouldn't make you feel like you wasted your time afterwards.
 
