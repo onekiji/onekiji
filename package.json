@@ -10,12 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^2.2.1",
     "@astrojs/rss": "^2.4.3",
     "@astrojs/sitemap": "^1.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "astro": "^2.7.1",
     "astro-compress": "^1.1.47",
     "markdown-it": "^13.0.1",
-    "sanitize-html": "^2.11.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanitize-html": "^2.11.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "sass": "^1.63.6"
