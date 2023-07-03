@@ -78,7 +78,7 @@ const RssReader = () => {
       <div id="feed" className={dataExists ? "expand" : ""} ref={feedRef}>
         <h1>{title}</h1>
         {feedItems.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="feed-item">
             <h2>{item.title}</h2>
             <p>{item.content}</p>
           </div>
