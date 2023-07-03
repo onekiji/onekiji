@@ -24,6 +24,7 @@ html {
     var(--white) 100%
   );
   background-color: var(--darkwhite);
+  --mobile-margin: 24px;
 }
 
 body {
@@ -34,8 +35,12 @@ body {
   min-height: 100%;
 }
 
-main {
+main,
+.dialog-panel {
   width: 61.8vw;
+}
+
+main {
   flex: 1;
 }
 
@@ -53,10 +58,26 @@ a:hover {
   filter: brightness(2);
 }
 
+.close-button {
+  all: unset;
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  cursor: pointer;
+  &::after {
+    content: "✕";
+    font-size: 24px;
+  }
+}
+
 @media screen and (max-width: 768px) {
-  main {
+  main,
+  .dialog-panel {
     width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: var(--mobile-margin);
+    padding-right: var(--mobile-margin);
+  }
+  .close-button {
+    left: var(--mobile-margin);
   }
 }

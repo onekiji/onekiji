@@ -19,6 +19,7 @@ import PageLayout from "@/layouts/PageLayout.astro";
   }
   input {
     padding: 1rem;
+    margin: 1rem;
     border: 1px solid var(--black);
     border-radius: 0.5rem;
     font-size: 1.5rem;
@@ -29,6 +30,18 @@ import PageLayout from "@/layouts/PageLayout.astro";
   #feed {
     .feed-item {
       margin-top: 2rem;
+      cursor: pointer;
+      button {
+        all: unset;
+      }
+      h2 {
+        margin-bottom: 0;
+      }
     }
+  }
+  .dialog-panel {
+    overflow-y: auto;
+    padding-bottom: 4rem;
+    position: relative;
   }
 </style>

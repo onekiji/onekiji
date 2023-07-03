@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { z } from "zod";
+import { Dialog } from "@headlessui/react";
 
 const rss2json = "https://api.rss2json.com/v1/api.json?rss_url=";
 
@@ -18,10 +19,10 @@ const rssJsonSchema = z.object({
   feed: z.object({
     author: z.string(),
     description: z.string(),
-    image: z.string().url(),
-    link: z.string().url(),
+    image: z.string(),
+    link: z.string(),
     title: z.string(),
-    url: z.string().url(),
+    url: z.string(),
   }),
   items: z.array(feedItemSchema),
 });
@@ -31,6 +32,14 @@ const RssReader = () => {
   const [url, setUrl] = useState("");
   const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
   const [dataExists, setDataExists] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlParam = params.get("url");
+    if (urlParam) {
+      setUrl(urlParam);
+    }
+  }, []);
 
   const resetData = () => {
     setTitle("");
@@ -58,7 +67,7 @@ const RssReader = () => {
           })
           .catch((err) => {
             resetData();
-            console.error("error fetching data");
+            console.error("error fetching data", err);
           });
       })();
     } else {
@@ -78,10 +87,7 @@ const RssReader = () => {
         <div id="feed">
           <h1>{title}</h1>
           {feedItems.map((item, index) => (
-            <div key={index} className="feed-item">
-              <h2>{item.title}</h2>
-              <p>{item.content}</p>
-            </div>
+            <FeedItemComponent key={index} item={item} />
           ))}
         </div>
       )}
@@ -90,3 +96,44 @@ const RssReader = () => {
 };
 
 export default RssReader;
+
+const FeedItemComponent = ({ item }: { item: FeedItem }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="feed-item">
+      <button onClick={() => setIsOpen(true)}>
+        <h2>{item.title}</h2>
+        <p>
+          <time>{new Date(item.pubDate).toDateString()}</time>
+        </p>
+        <Dialog
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            width: "100%",
+            height: "100%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "var(--darkwhite)",
+          }}
+        >
+          <Dialog.Panel className="dialog-panel">
+            <button
+              className="close-button"
+              onClick={() => setIsOpen(false)}
+            ></button>
+            <article>
+              <Dialog.Title>{item.title}</Dialog.Title>
+              <Dialog.Description>{item.content}</Dialog.Description>
+            </article>
+          </Dialog.Panel>
+        </Dialog>
+      </button>
+    </div>
+  );
+};
