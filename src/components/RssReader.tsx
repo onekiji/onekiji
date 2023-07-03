@@ -73,7 +73,7 @@ const RssReader = () => {
         type="text"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
-        placeholder="https://onekiji.com/feed.xml"
+        placeholder="https://example.com/feed"
       />
       <div id="feed" className={dataExists ? "expand" : ""} ref={feedRef}>
         <h1>{title}</h1>
