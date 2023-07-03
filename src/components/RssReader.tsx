@@ -31,7 +31,6 @@ const RssReader = () => {
   const [url, setUrl] = useState("");
   const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
   const [dataExists, setDataExists] = useState(false);
-  const feedRef = useRef<HTMLDivElement>(null);
 
   const resetData = () => {
     setTitle("");
@@ -75,15 +74,17 @@ const RssReader = () => {
         onChange={(e) => setUrl(e.target.value)}
         placeholder="https://example.com/feed"
       />
-      <div id="feed">
-        <h1>{title}</h1>
-        {feedItems.map((item, index) => (
-          <div key={index} className="feed-item">
-            <h2>{item.title}</h2>
-            <p>{item.content}</p>
-          </div>
-        ))}
-      </div>
+      {dataExists && (
+        <div id="feed">
+          <h1>{title}</h1>
+          {feedItems.map((item, index) => (
+            <div key={index} className="feed-item">
+              <h2>{item.title}</h2>
+              <p>{item.content}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 };
