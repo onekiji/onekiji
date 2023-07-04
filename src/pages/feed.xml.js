@@ -10,7 +10,7 @@ export async function get(context) {
   return rss({
     title: "One Kiji",
     description:
-      "One Kiji writes on the single most important piece of news published every day.",
+      "One Kiji summarizes the single most important piece of news published every day.",
     site: context.site,
     items: kijis.map((kiji) => ({
       title: getTitleMd(kiji.body),
