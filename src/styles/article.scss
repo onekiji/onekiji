@@ -8,9 +8,9 @@
   left: 0;
   backdrop-filter: blur(5px);
   background-color: rgba(var(--darkwhitergb), 0.8);
-
-  time {
+  a {
     padding: 1rem;
+    text-decoration: none;
   }
 }
 

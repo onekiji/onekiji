@@ -24,7 +24,9 @@ const readingTime = readingTimeMd(kiji.body);
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
-    <FormatDate date={new Date(kiji.slug)} />
+    <a href="/archive">
+      <FormatDate date={new Date(kiji.slug)} />
+    </a>
   </div>
   <p>
     {readingTime + (readingTime > 1 ? " minutes read" : " minute read")}
