@@ -4,31 +4,45 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
 import { getTitleMd } from "@/util/markdown";
 
-const archives = await getCollection("kiji");
+const archive = await getCollection("kiji");
 ---
 
 <PageLayout title="Archives - One Kiji" description="Archive of past news">
   <h1>Archive</h1>
-  <ul>
-    {
-      archives.map((kiji) => (
-        <li>
-          <p>
-            <a href={kiji.slug} aria-label={`Archive from ${kiji.slug}`}>
-              <strong>
-                <FormatDate date={new Date(kiji.slug)} />
-              </strong>
-              -&nbsp;{getTitleMd(kiji.body)}
-            </a>
-          </p>
-        </li>
-      ))
-    }
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        archive.map((kiji) => (
+          <tr>
+            <td>
+              <FormatDate date={new Date(kiji.slug)} />
+            </td>
+            <td>
+              <a href={kiji.slug} aria-label={`Archive from ${kiji.slug}`}>
+                {getTitleMd(kiji.body)}
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
   <style>
-    ul {
-      list-style: none;
-      padding: 0;
+    table {
+      border-collapse: collapse;
+      text-align: left;
+      width: 100%;
+    }
+    th,
+    td {
+      border: 1px solid var(--black);
+      padding: 0.5rem;
     }
   </style>
 </PageLayout>
