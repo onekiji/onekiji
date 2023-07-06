@@ -8,6 +8,7 @@ const kiji = defineCollection({
       .transform((str) => (str ? new Date(str) : undefined)),
     heroImage: z.string().optional(),
     sources: z.array(z.string().url()).optional(),
+    language: z.string().length(2).optional(),
   }),
 });
 
