@@ -1,8 +1,6 @@
 import { defineCollection, z } from "astro:content";
-import i18nConfig from "@/root/astro-i18next.config";
 
-const defaultLanguage = i18nConfig.defaultLocale;
-const languageSchema = z.string().length(2).optional().default(defaultLanguage);
+const languageSchema = z.string().length(2).default("en").optional();
 
 const kiji = defineCollection({
   schema: z.object({
