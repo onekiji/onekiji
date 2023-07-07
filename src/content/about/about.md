@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/PageLayout.astro"
 title: "About One Kiji"
 description: "One Kiji summarizes the single most important piece of news published every day."
 ---

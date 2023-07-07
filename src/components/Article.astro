@@ -3,10 +3,12 @@ import type { CollectionEntry } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import FormatDate from "./FormatDate.astro";
 import {
+  filenameToDateString,
   getFirstParagraphMd,
   getTitleMd,
   readingTimeMd,
 } from "@/util/markdown";
+import { localizePath } from "astro-i18next";
 
 type Props = CollectionEntry<"kiji"> & {
   title?: string;
@@ -24,8 +26,8 @@ const readingTime = readingTimeMd(kiji.body);
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
-    <a href="/archive">
-      <FormatDate date={new Date(kiji.slug)} />
+    <a href={localizePath("/archive")}>
+      <FormatDate date={new Date(filenameToDateString(kiji.slug))} />
     </a>
   </div>
   <p>

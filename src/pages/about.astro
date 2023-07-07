@@ -1,0 +1,18 @@
+---
+import i18next, { changeLanguage } from "i18next";
+import { getEntry } from "astro:content";
+import PageLayout from "@/layouts/PageLayout.astro";
+
+changeLanguage("en");
+
+let about = await getEntry("about", "about" + (i18next.language === "en" ? "" : "-" + i18next.language));
+if (!about) {
+    about = await getEntry("about", "about");
+}
+const { title, description } = about.data;
+const { Content } = await about.render();
+---
+
+<PageLayout title={title} description={description}>
+  <Content />
+</PageLayout>

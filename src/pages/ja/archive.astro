@@ -6,7 +6,7 @@ import FormatDate from "@/components/FormatDate.astro";
 import { filenameToDateString, getTitleMd } from "@/util/markdown";
 import { localizePath } from "astro-i18next";
 
-changeLanguage("en");
+changeLanguage("ja");
 
 const archive = await getCollection("kiji", ({ data }) => data.language === i18next.language);
 ---

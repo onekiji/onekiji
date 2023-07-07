@@ -17,3 +17,7 @@ export function readingTimeMd(markdown: string) {
   const minutes = Math.ceil(words / 200); // 200 words per minute is the average reading speed
   return minutes;
 }
+
+export function filenameToDateString(filename: string) {
+  return filename.slice(0, 10);
+}

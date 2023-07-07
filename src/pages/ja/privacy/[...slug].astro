@@ -3,7 +3,7 @@ import { changeLanguage } from "i18next";
 import PageLayout from "@/layouts/PageLayout.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 
-changeLanguage("en");
+changeLanguage("ja");
 
 export async function getStaticPaths() {
     const kijis = await getCollection("privacy");

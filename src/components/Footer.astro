@@ -1,18 +1,24 @@
+---
+import { localizePath } from "astro-i18next";
+---
+
 <footer>
   <p>
-    &copy; 2023 <a href="/" aria-label="One Kiji">One Kiji</a>
+    &copy; 2023 <a href={localizePath("/")} aria-label="One Kiji">One Kiji</a>
   </p>
   <div class="divider"></div>
   <p>
-    <a href="/archive" aria-label="One Kiji archive">Archive</a>
+    <a href={localizePath("/archive")} aria-label="One Kiji archive">Archive</a>
   </p>
   <div class="divider"></div>
   <p>
-    <a href="about" aria-label="About One Kiji">About</a>
+    <a href={localizePath("/about")} aria-label="About One Kiji">About</a>
   </p>
   <div class="divider"></div>
   <p>
-    <a href="/privacy" aria-label="One Kiji privacy policy">Privacy Policy</a>
+    <a href={localizePath("/privacy")} aria-label="One Kiji privacy policy">
+      Privacy Policy
+    </a>
   </p>
 </footer>
 <style lang="scss">

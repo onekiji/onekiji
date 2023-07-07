@@ -4,7 +4,7 @@ import Article from "@/components/Article.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 import { filenameToDateString } from "@/util/markdown";
 
-changeLanguage("en");
+changeLanguage("ja");
 
 export async function getStaticPaths() {
     const kijis = await getCollection("kiji", ({ data }) => data.language === i18next.language);

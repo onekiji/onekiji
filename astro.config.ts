@@ -1,11 +1,23 @@
 import { defineConfig } from "astro/config";
+import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
+import react from "@astrojs/react";
 import compress from "astro-compress";
 
-import react from "@astrojs/react";
-
-// https://astro.build/config
 export default defineConfig({
   site: "https://onekiji.com/",
-  integrations: [sitemap(), react(), compress()],
+  integrations: [
+    astroI18next(),
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en-US",
+          ja: "ja-JP",
+        },
+      },
+    }),
+    react(),
+    compress(),
+  ],
 });

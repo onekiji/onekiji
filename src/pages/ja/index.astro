@@ -4,7 +4,7 @@ import Article from "@/components/Article.astro";
 import { getCollection } from "astro:content";
 import { filenameToDateString } from "@/util/markdown";
 
-changeLanguage("en");
+changeLanguage("ja");
 
 const latestPost = await getCollection("kiji", ({ data }) => data.language === i18next.language).then((posts) => posts.sort((a, b) => new Date(filenameToDateString(b.slug)) >
     new Date(filenameToDateString(a.slug))

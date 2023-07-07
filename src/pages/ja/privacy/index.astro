@@ -6,7 +6,7 @@ import FormatDate from "@/components/FormatDate.astro";
 import { localizePath } from "astro-i18next";
 import { filenameToDateString } from "@/util/markdown";
 
-changeLanguage("en");
+changeLanguage("ja");
 
 let latestPrivacyPolicy = await getCollection("privacy", ({ data }) => data.language === i18next.language).then((collection) => collection.sort((a, b) => new Date(filenameToDateString(a.slug)) <
     new Date(filenameToDateString(b.slug))

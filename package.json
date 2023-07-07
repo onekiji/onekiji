@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "i18n": "npx astro-i18next generate"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",
@@ -18,6 +19,7 @@
     "@types/react-dom": "^18.2.6",
     "astro": "^2.7.1",
     "astro-compress": "^1.1.47",
+    "astro-i18next": "^1.0.0-beta.21",
     "markdown-it": "^13.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,6 +27,8 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/sanitize-html": "^2.9.0",
     "sass": "^1.63.6"
   }
 }

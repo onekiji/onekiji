@@ -1,4 +1,8 @@
 import { defineCollection, z } from "astro:content";
+import i18nConfig from "@/root/astro-i18next.config";
+
+const defaultLanguage = i18nConfig.defaultLocale;
+const languageSchema = z.string().length(2).optional().default(defaultLanguage);
 
 const kiji = defineCollection({
   schema: z.object({
@@ -8,10 +12,21 @@ const kiji = defineCollection({
       .transform((str) => (str ? new Date(str) : undefined)),
     heroImage: z.string().optional(),
     sources: z.array(z.string().url()).optional(),
-    language: z.string().length(2).optional(),
+    language: languageSchema,
   }),
 });
 
-const privacy = defineCollection({});
+const privacy = defineCollection({
+  schema: z.object({
+    language: languageSchema,
+  }),
+});
 
-export const collections = { kiji, privacy };
+const about = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+export const collections = { kiji, privacy, about };
