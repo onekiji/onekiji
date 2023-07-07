@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
 
-const languageSchema = z.string().length(2).default("en").optional();
+const languageSchema = z.string().length(2).optional().default("en");
 
 const kiji = defineCollection({
   schema: z.object({
