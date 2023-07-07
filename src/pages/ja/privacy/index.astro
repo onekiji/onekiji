@@ -1,10 +1,10 @@
 ---
-import i18next, { changeLanguage } from "i18next";
+import i18next, { changeLanguage, t } from "i18next";
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
-import FormatDate from "@/components/FormatDate.astro";
 import { localizePath } from "astro-i18next";
 import { filenameToDateString } from "@/util/markdown";
+import { Trans } from "astro-i18next/components";
 
 changeLanguage("ja");
 
@@ -21,22 +21,30 @@ if (!latestPrivacyPolicy) {
 const { Content } = await latestPrivacyPolicy.render();
 ---
 
-<PageLayout
-  title="Privacy Policy - One Kiji"
-  description="Privacy policy of One Kiji"
->
+<PageLayout title={t("privacy.title")} description={t("privacy.description")}>
   <Content />
   <p>
-    The archive of all previous privacy policy can be checked at the
-    <a
-      href={localizePath("/privacy/archive")}
-      aria-label="Archive of One Kiji privacy policy"
-      >archive of the privacy policy pages</a
-    >.
+    <Trans i18nKey="privacy.archive-text">
+      The archive of all previous privacy policy can be checked at the
+      <a
+        href={localizePath("/privacy/archive")}
+        aria-label={t("privacy.archive-aria")}
+      >
+        archive of the privacy policy pages
+      </a>.
+    </Trans>
   </p>
   <p>
-    Privacy policy was last updated on
-    <FormatDate date={new Date(latestPrivacyPolicy.slug)} />
-    and is valid until the next update.
+    {
+      t("privacy.last-updated", {
+        date: new Date(
+          filenameToDateString(latestPrivacyPolicy.slug)
+        ).toLocaleDateString(i18next.language, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }),
+      })
+    }
   </p>
 </PageLayout>

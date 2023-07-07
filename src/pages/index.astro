@@ -1,5 +1,5 @@
 ---
-import i18next, { changeLanguage } from "i18next";
+import i18next, { changeLanguage, t } from "i18next";
 import Article from "@/components/Article.astro";
 import { getCollection } from "astro:content";
 import { filenameToDateString } from "@/util/markdown";
@@ -16,8 +16,8 @@ const latestPost = await getCollection("kiji", ({ data }) => data.language === i
   latestPost && (
     <Article
       {...latestPost}
-      title={`One Kiji`}
-      description="One Kiji summarizes the single most important piece of news published every day."
+      title={t("index.title") as string}
+      description={t("index.description") as string}
     />
   )
 }

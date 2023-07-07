@@ -1,5 +1,5 @@
 ---
-import i18next, { changeLanguage } from "i18next";
+import i18next, { changeLanguage, t } from "i18next";
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
@@ -11,13 +11,13 @@ changeLanguage("en");
 const archive = await getCollection("kiji", ({ data }) => data.language === i18next.language);
 ---
 
-<PageLayout title="Archive - One Kiji" description="Archive of past news">
-  <h1>Archive</h1>
+<PageLayout title={t("archive.title")} description={t("archive.description")}>
+  <h1>{t("common.archive")}</h1>
   <table>
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Title</th>
+        <th>{t("common.date")}</th>
+        <th>{t("common.title")}</th>
       </tr>
     </thead>
     <tbody>
@@ -30,7 +30,9 @@ const archive = await getCollection("kiji", ({ data }) => data.language === i18n
             <td>
               <a
                 href={localizePath(filenameToDateString(kiji.slug))}
-                aria-label={`Kiji from ${filenameToDateString(kiji.slug)}`}
+                aria-label={t("archive.kiji-from-aria", {
+                  date: filenameToDateString(kiji.slug),
+                })}
               >
                 {getTitleMd(kiji.body)}
               </a>
@@ -41,6 +43,10 @@ const archive = await getCollection("kiji", ({ data }) => data.language === i18n
     </tbody>
   </table>
   <style>
+    h1,
+    th {
+      text-transform: capitalize;
+    }
     table {
       border-collapse: collapse;
       text-align: left;

@@ -1,15 +1,12 @@
 ---
-import { changeLanguage } from "i18next";
+import { changeLanguage, t } from "i18next";
 import RssReader from "@/components/RssReader";
 import PageLayout from "@/layouts/PageLayout.astro";
 
 changeLanguage("en");
 ---
 
-<PageLayout
-  title="RSS Reader - One Kiji"
-  description="Read news in our interface."
->
+<PageLayout title={t("rss.title")} description={t("rss.description")}>
   <RssReader client:load />
 </PageLayout>
 <style is:global lang="scss">

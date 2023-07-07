@@ -1,5 +1,5 @@
 ---
-import { changeLanguage } from "i18next";
+import { changeLanguage, t } from "i18next";
 import PageLayout from "@/layouts/PageLayout.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 
@@ -14,13 +14,13 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"privacy">;
 const privacy = Astro.props;
-const title = `${privacy.slug} - Privacy Policy Archive`;
+const title = `${privacy.slug} - ${t("privacy.archive.title")}`;
 const { Content } = await privacy.render();
 ---
 
 <PageLayout
   title={title}
-  description=`Archive of Privacy Policy from ${privacy.slug}`
+  description={t("privacy.archive.specified-date", privacy.slug)}
 >
   <h1>{title}</h1>
   <Content />

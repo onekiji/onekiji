@@ -1,10 +1,11 @@
 ---
-import i18next, { changeLanguage } from "i18next";
+import i18next, { changeLanguage, t } from "i18next";
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
 import { localizePath } from "astro-i18next";
 import { filenameToDateString } from "@/util/markdown";
+import { formatDate } from "@/components/FormatDate.astro";
 
 changeLanguage("en");
 
@@ -14,8 +15,11 @@ const latestPrivacyPolicy = await getCollection("privacy", ({ data }) => data.la
     : -1));
 ---
 
-<PageLayout title="Privacy Policy - One Kiji" description="">
-  <h1>Privacy Policy Archive</h1>
+<PageLayout
+  title={t("privacy.archive.title")}
+  description={t("privacy.archive.description")}
+>
+  <h1>{t("privacy.archive.title")}</h1>
   <ul>
     {
       latestPrivacyPolicy.map(({ slug }) => (
@@ -23,7 +27,9 @@ const latestPrivacyPolicy = await getCollection("privacy", ({ data }) => data.la
           <p>
             <a
               href={localizePath(`/privacy/${slug}`)}
-              aria-label={`Privacy policy archive from ${slug}`}
+              aria-label={t("privacy.archive.list-link-aria", {
+                date: formatDate(new Date(slug)) || "test",
+              })}
             >
               <FormatDate date={new Date(slug)} />
             </a>

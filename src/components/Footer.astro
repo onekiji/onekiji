@@ -1,23 +1,33 @@
 ---
 import { localizePath } from "astro-i18next";
+import { t } from "i18next";
 ---
 
 <footer>
   <p>
-    &copy; 2023 <a href={localizePath("/")} aria-label="One Kiji">One Kiji</a>
+    &copy; 2023 <a href={localizePath("/")} aria-label={t("footer.home-aria")}
+      >One Kiji</a
+    >
   </p>
   <div class="divider"></div>
   <p>
-    <a href={localizePath("/archive")} aria-label="One Kiji archive">Archive</a>
+    <a href={localizePath("/archive")} aria-label={t("footer.archive-aria")}>
+      {t("common.archive")}
+    </a>
   </p>
   <div class="divider"></div>
   <p>
-    <a href={localizePath("/about")} aria-label="About One Kiji">About</a>
+    <a href={localizePath("/about")} aria-label={t("footer.about-aria")}>
+      {t("common.about")}
+    </a>
   </p>
   <div class="divider"></div>
   <p>
-    <a href={localizePath("/privacy")} aria-label="One Kiji privacy policy">
-      Privacy Policy
+    <a
+      href={localizePath("/privacy")}
+      aria-label={t("footer.privacy-policy-aria")}
+    >
+      {t("common.privacy-policy")}
     </a>
   </p>
 </footer>
@@ -36,6 +46,7 @@ import { localizePath } from "astro-i18next";
     }
     a {
       text-decoration: none;
+      text-transform: capitalize;
     }
     .divider {
       width: 1px;

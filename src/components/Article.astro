@@ -9,6 +9,7 @@ import {
   readingTimeMd,
 } from "@/util/markdown";
 import { localizePath } from "astro-i18next";
+import { t } from "i18next";
 
 type Props = CollectionEntry<"kiji"> & {
   title?: string;
@@ -26,7 +27,7 @@ const readingTime = readingTimeMd(kiji.body);
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
-    <a href={localizePath("/archive")}>
+    <a href={localizePath("/archive")} aria-label={t("footer.archive-aria")}>
       <FormatDate date={new Date(filenameToDateString(kiji.slug))} />
     </a>
   </div>
@@ -40,7 +41,10 @@ const readingTime = readingTimeMd(kiji.body);
         <ul>
           {sources.map((source, index) => (
             <li>
-              <a href={source} aria-label={`Source ${index + 1}`}>
+              <a
+                href={source}
+                aria-label={`${t("common.source")} ${index + 1}`}
+              >
                 {source}
               </a>
             </li>

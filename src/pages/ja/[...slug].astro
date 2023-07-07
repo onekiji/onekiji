@@ -8,7 +8,6 @@ changeLanguage("ja");
 
 export async function getStaticPaths() {
     const kijis = await getCollection("kiji", ({ data }) => data.language === i18next.language);
-    console.log(kijis);
     return kijis.map((post) => ({
         params: {
             slug: filenameToDateString(post.slug),
