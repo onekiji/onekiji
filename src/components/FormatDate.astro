@@ -1,4 +1,6 @@
 ---
+import i18next from "i18next";
+
 interface Props {
   date: Date;
 }
@@ -7,5 +9,11 @@ const { date } = Astro.props;
 ---
 
 <time>
-  {date.toDateString()}
+  {
+    date.toLocaleDateString(i18next.language, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
 </time>
