@@ -2,22 +2,14 @@
 import i18next, { changeLanguage, t } from "i18next";
 import Article from "@/components/Article.astro";
 import { getCollection } from "astro:content";
-import { filenameToDateString } from "@/util";
+import { filenameToDateString, languageFromFilename } from "@/util";
 
 changeLanguage("en");
 
-const latestPost = await getCollection(
-  "kiji",
-  ({ data }) => data.language === i18next.language
-).then(
-  (posts) =>
-    posts.sort((a, b) =>
-      new Date(filenameToDateString(b.slug)) >
-      new Date(filenameToDateString(a.slug))
-        ? 1
-        : -1
-    )[0]
-);
+const latestPost = await getCollection("kiji", ({ slug }) => languageFromFilename(slug) === i18next.language).then((posts) => posts.sort((a, b) => new Date(filenameToDateString(b.slug)) >
+    new Date(filenameToDateString(a.slug))
+    ? 1
+    : -1)[0]);
 ---
 
 {

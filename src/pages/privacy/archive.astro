@@ -4,22 +4,15 @@ import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
 import { localizePath } from "astro-i18next";
-import { filenameToDateString } from "@/util";
+import { filenameToDateString, languageFromFilename } from "@/util";
 import { formatDate } from "@/components/FormatDate.astro";
 
 changeLanguage("en");
 
-const latestPrivacyPolicy = await getCollection(
-  "privacy",
-  ({ data }) => data.language === i18next.language
-).then((collection) =>
-  collection.sort((a, b) =>
-    new Date(filenameToDateString(a.slug)) <
+const latestPrivacyPolicy = await getCollection("privacy", ({ slug }) => languageFromFilename(slug) === i18next.language).then((collection) => collection.sort((a, b) => new Date(filenameToDateString(a.slug)) <
     new Date(filenameToDateString(b.slug))
-      ? 1
-      : -1
-  )
-);
+    ? 1
+    : -1));
 ---
 
 <PageLayout

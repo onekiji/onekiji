@@ -2,21 +2,18 @@
 import i18next, { changeLanguage } from "i18next";
 import Article from "@/components/Article.astro";
 import { getCollection, CollectionEntry } from "astro:content";
-import { filenameToDateString } from "@/util";
+import { filenameToDateString, languageFromFilename } from "@/util";
 
 changeLanguage("en");
 
 export async function getStaticPaths() {
-  const kijis = await getCollection(
-    "kiji",
-    ({ data }) => data.language === i18next.language
-  );
-  return kijis.map((post) => ({
-    params: {
-      slug: filenameToDateString(post.slug),
-    },
-    props: post,
-  }));
+    const kijis = await getCollection("kiji", ({ slug }) => languageFromFilename(slug) === i18next.language);
+    return kijis.map((post) => ({
+        params: {
+            slug: filenameToDateString(post.slug),
+        },
+        props: post,
+    }));
 }
 type Props = CollectionEntry<"kiji">;
 const kiji = Astro.props;

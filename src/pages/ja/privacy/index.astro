@@ -3,33 +3,21 @@ import i18next, { changeLanguage, t } from "i18next";
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import { localizePath } from "astro-i18next";
-import { filenameToDateString } from "@/util";
+import { filenameToDateString, languageFromFilename } from "@/util";
 import { Trans } from "astro-i18next/components";
+import { formatDate } from "@/components/FormatDate.astro";
 
 changeLanguage("ja");
 
-let latestPrivacyPolicy = await getCollection(
-  "privacy",
-  ({ data }) => data.language === i18next.language
-).then(
-  (collection) =>
-    collection.sort((a, b) =>
-      new Date(filenameToDateString(a.slug)) <
-      new Date(filenameToDateString(b.slug))
-        ? 1
-        : -1
-    )[0]
-);
+let latestPrivacyPolicy = await getCollection("privacy", ({ slug }) => languageFromFilename(slug) === i18next.language).then((collection) => collection.sort((a, b) => new Date(filenameToDateString(a.slug)) <
+    new Date(filenameToDateString(b.slug))
+    ? 1
+    : -1)[0]);
 if (!latestPrivacyPolicy) {
-  latestPrivacyPolicy = await getCollection("privacy").then(
-    (collection) =>
-      collection.sort((a, b) =>
-        new Date(filenameToDateString(a.slug)) <
+    latestPrivacyPolicy = await getCollection("privacy").then((collection) => collection.sort((a, b) => new Date(filenameToDateString(a.slug)) <
         new Date(filenameToDateString(b.slug))
-          ? 1
-          : -1
-      )[0]
-  );
+        ? 1
+        : -1)[0]);
 }
 const { Content } = await latestPrivacyPolicy.render();
 ---
@@ -50,13 +38,9 @@ const { Content } = await latestPrivacyPolicy.render();
   <p>
     {
       t("privacy.last-updated", {
-        date: new Date(
-          filenameToDateString(latestPrivacyPolicy.slug)
-        ).toLocaleDateString(i18next.language, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }),
+        date: formatDate(
+          new Date(filenameToDateString(latestPrivacyPolicy.slug))
+        ),
       })
     }
   </p>

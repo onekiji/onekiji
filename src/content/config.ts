@@ -1,6 +1,4 @@
-import { defineCollection, z } from 'astro:content';
-
-const languageSchema = z.string().length(2).optional().default("en");
+import { defineCollection, z } from "astro:content";
 
 const kiji = defineCollection({
   schema: z.object({
@@ -10,15 +8,10 @@ const kiji = defineCollection({
       .transform((str) => (str ? new Date(str) : undefined)),
     heroImage: z.string().optional(),
     sources: z.array(z.string().url()).optional(),
-    language: languageSchema,
   }),
 });
 
-const privacy = defineCollection({
-  schema: z.object({
-    language: languageSchema,
-  }),
-});
+const privacy = defineCollection({});
 
 const about = defineCollection({
   schema: z.object({

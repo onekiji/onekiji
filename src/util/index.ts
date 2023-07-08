@@ -21,3 +21,7 @@ export function readingTimeMd(markdown: string) {
 export function filenameToDateString(filename: string) {
   return filename.slice(0, 10);
 }
+
+export function languageFromFilename(filename: string) {
+  return filename.split("-")[3] || "en";
+}
