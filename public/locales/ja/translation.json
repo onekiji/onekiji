@@ -1,43 +1,43 @@
 {
   "archive": {
-    "description": "全記事のアーカイブ",
+    "description": "過去の全記事のアーカイブ",
     "kiji-from-aria": "{{date}}の記事",
-    "title": "アーカイブ - One Kiji"
+    "title": "アーカイブ - ワンキジ"
   },
   "common": {
-    "about": "about",
-    "archive": "アーカイブ",
+    "about": "ワンキジについて",
+    "archive": "過去の記事",
     "date": "日",
-    "one-kiji": "One Kiji",
+    "one-kiji": "ワンキジ",
     "privacy-policy": "プライバシーポリシー",
-    "source": "ソース",
+    "source": "ソースコード",
     "title": "タイトル"
   },
   "footer": {
-    "about-aria": "About One Kiji",
-    "archive-aria": "全記事のアーカイブ",
-    "home-aria": "One Kiji",
-    "privacy-policy-aria": "One Kijiのプライバシーポリシー"
+    "about-aria": "ワンキジについて",
+    "archive-aria": "過去の記事",
+    "home-aria": "ワンキジ",
+    "privacy-policy-aria": "ワンキジの個人情報保護方針"
   },
   "index": {
-    "description": "One Kiji summarizes the single most important piece of news published every day.",
-    "title": "One Kiji"
+    "description": "ワンキジは毎日、その日最も重要なニュースを要約します。",
+    "title": "ワンキジ"
   },
   "privacy": {
     "archive": {
-      "description": "過去のプライバシーポリシーのアーカイブ",
-      "list-link-aria": "{{date}}のプライバシーポリシー",
-      "specified-date": "{{date}}のプライバシーポリシー",
-      "title": "プライバシーポリシーアーカイブ"
+      "description": "過去の個人情報保護方針のアーカイブ",
+      "list-link-aria": "{{date}}の個人情報保護方針",
+      "specified-date": "{{date}}の個人情報保護方針",
+      "title": "個人情報保護方針のアーカイブ"
     },
-    "archive-aria": "Archive of One Kiji privacy policy",
-    "archive-text": "プライバシーポリシーの<0>アーカイブ</0>",
-    "description": "One Kijiのプライバシーポリシー",
-    "last-updated": "Privacy policy was last updated on {{date}}, and is valid until next update.",
+    "archive-aria": "個人情報保護方針のアーカイブ",
+    "archive-text": "個人情報保護方針の<0>アーカイブ</0>",
+    "description": "ワンキジのプライバシーポリシー",
+    "last-updated": "最終更新日: {{date}}。次の更新まで有効",
     "title": "プライバシーポリシー - One Kiji"
   },
   "rss": {
-    "description": "Read news in our interface.",
-    "title": "RSSリーダー - One Kiji"
+    "description": "ニュースをワンキジのデザインで読む",
+    "title": "RSSリーダー - ワンキジ"
   }
 }
