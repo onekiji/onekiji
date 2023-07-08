@@ -8,7 +8,17 @@ import { localizePath } from "astro-i18next";
 
 changeLanguage("ja");
 
-const archive = await getCollection("kiji", ({ slug }) => languageFromFilename(slug) === i18next.language);
+const archive = await getCollection(
+  "kiji",
+  ({ slug }) => languageFromFilename(slug) === i18next.language
+).then((posts) =>
+  posts.sort((a, b) =>
+    new Date(filenameToDateString(b.slug)) >
+    new Date(filenameToDateString(a.slug))
+      ? 1
+      : -1
+  )
+);
 ---
 
 <PageLayout title={t("archive.title")} description={t("archive.description")}>
