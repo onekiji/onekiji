@@ -3,12 +3,15 @@ import i18next, { changeLanguage, t } from "i18next";
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormatDate from "@/components/FormatDate.astro";
-import { filenameToDateString, getTitleMd } from "@/util/markdown";
+import { filenameToDateString, getTitleMd } from "@/util";
 import { localizePath } from "astro-i18next";
 
 changeLanguage("ja");
 
-const archive = await getCollection("kiji", ({ data }) => data.language === i18next.language);
+const archive = await getCollection(
+  "kiji",
+  ({ data }) => data.language === i18next.language
+);
 ---
 
 <PageLayout title={t("archive.title")} description={t("archive.description")}>

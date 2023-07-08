@@ -2,11 +2,7 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
-import {
-  filenameToDateString,
-  getFirstParagraphMd,
-  getTitleMd,
-} from "@/util/markdown";
+import { filenameToDateString, getFirstParagraphMd, getTitleMd } from "@/util";
 import { localizePath } from "astro-i18next";
 const parser = new MarkdownIt();
 
