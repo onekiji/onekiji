@@ -11,6 +11,6 @@ Consuming news shouldn't be distracting, and shouldn't make you feel like you wa
 
 We don't prey on reader's attentions and psyche for our own benefits.
 
-One Kiji is an open source project. You can find the source code on [GitHub](https://github.com/onekiji/onekiji/tree/main).
+One Kiji is an open source project. You can find the source code on [GitHub](https://github.com/onekiji/onekiji).
 
-Last updated: Jun 30, 2023
+Last updated: July 8, 2023
