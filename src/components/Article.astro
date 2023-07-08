@@ -1,15 +1,16 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { getEntry, type CollectionEntry } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import FormatDate from "./FormatDate.astro";
 import {
   filenameToDateString,
   getFirstParagraphMd,
   getTitleMd,
+  languageFromFilename,
   readingTimeMd,
 } from "@/util";
 import { localizePath } from "astro-i18next";
-import { t } from "i18next";
+import i18next, { t } from "i18next";
 
 type Props = CollectionEntry<"kiji"> & {
   title?: string;
@@ -18,11 +19,21 @@ type Props = CollectionEntry<"kiji"> & {
 
 const kiji = Astro.props;
 
-const { heroImage, sources } = kiji.data;
+const { heroImage } = kiji.data;
+let { sources } = kiji.data;
 const { Content } = await kiji.render();
 const title = kiji.title || getTitleMd(kiji.body);
 const description = kiji.description || getFirstParagraphMd(kiji.body);
 const readingTime = readingTimeMd(kiji.body);
+
+if (languageFromFilename(kiji.slug) !== "en") {
+  // reference to the original (en) article for sources
+  const originalKiji = await getEntry("kiji", filenameToDateString(kiji.slug));
+  if (!originalKiji) {
+    return;
+  }
+  sources = originalKiji.data.sources;
+}
 ---
 
 <ArticleLayout title={title} description={description} image={heroImage}>
