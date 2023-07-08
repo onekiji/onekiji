@@ -1,0 +1,40 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+---
+
+<PageLayout title="404 - One Kiji" description="Page not found">
+  <h1>404</h1>
+  <p>
+    Page not found. If you think this is an error, please let us know by
+    creating an issue on <a
+      href="https://github.com/onekiji/onekiji/issues/new/choose"
+      aria-label="Create issue on GitHub">GitHub</a
+    >.
+  </p>
+  <p>Here are some useful links</p>
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="/archive">Archive</a>
+    </li>
+    <li>
+      <a href="/about">About</a>
+    </li>
+    <li>
+      <a href="/privacy">Privacy Policy</a>
+    </li>
+    <li>
+      <a href="/rss">RSS Reader</a>
+    </li>
+  </ul>
+  <style lang="scss">
+    ul {
+      margin-left: 1em;
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</PageLayout>
