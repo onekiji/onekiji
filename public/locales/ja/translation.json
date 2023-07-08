@@ -1,0 +1,43 @@
+{
+  "archive": {
+    "description": "全記事のアーカイブ",
+    "kiji-from-aria": "{{date}}の記事",
+    "title": "アーカイブ - One Kiji"
+  },
+  "common": {
+    "about": "about",
+    "archive": "アーカイブ",
+    "date": "日",
+    "one-kiji": "One Kiji",
+    "privacy-policy": "プライバシーポリシー",
+    "source": "ソース",
+    "title": "タイトル"
+  },
+  "footer": {
+    "about-aria": "About One Kiji",
+    "archive-aria": "全記事のアーカイブ",
+    "home-aria": "One Kiji",
+    "privacy-policy-aria": "One Kijiのプライバシーポリシー"
+  },
+  "index": {
+    "description": "One Kiji summarizes the single most important piece of news published every day.",
+    "title": "One Kiji"
+  },
+  "privacy": {
+    "archive": {
+      "description": "過去のプライバシーポリシーのアーカイブ",
+      "list-link-aria": "{{date}}のプライバシーポリシー",
+      "specified-date": "{{date}}のプライバシーポリシー",
+      "title": "プライバシーポリシーアーカイブ"
+    },
+    "archive-aria": "Archive of One Kiji privacy policy",
+    "archive-text": "プライバシーポリシーの<0>アーカイブ</0>",
+    "description": "One Kijiのプライバシーポリシー",
+    "last-updated": "Privacy policy was last updated on {{date}}, and is valid until next update.",
+    "title": "プライバシーポリシー - One Kiji"
+  },
+  "rss": {
+    "description": "Read news in our interface.",
+    "title": "RSSリーダー - One Kiji"
+  }
+}
