@@ -1,5 +1,19 @@
 import { defineCollection, z } from "astro:content";
 
+const tags = [
+  "china",
+  "conflicts",
+  "environment",
+  "france",
+  "israel",
+  "palestine",
+  "politics",
+  "russia",
+  "tech",
+  "ukraine",
+  "usa",
+];
+
 const kiji = defineCollection({
   schema: z.object({
     updatedDate: z
@@ -8,6 +22,16 @@ const kiji = defineCollection({
       .transform((str) => (str ? new Date(str) : undefined)),
     heroImage: z.string().optional(),
     sources: z.array(z.string().url()).optional(),
+    tags: z
+      .array(
+        z
+          .string()
+          .toLowerCase()
+          .refine((tag) => tags.includes(tag), {
+            message: `Invalid tag. Valid tags are: ${tags.join(", ")}`,
+          })
+      )
+      .optional(),
   }),
 });
 
