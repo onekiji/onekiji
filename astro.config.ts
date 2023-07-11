@@ -10,6 +10,7 @@ export default defineConfig({
   integrations: [
     astroI18next(),
     sitemap({
+      changefreq: "daily",
       i18n: {
         defaultLocale: "en",
         locales: {
