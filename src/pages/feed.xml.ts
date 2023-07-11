@@ -1,3 +1,4 @@
+import type { APIContext } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import sanitizeHtml from "sanitize-html";
@@ -11,7 +12,7 @@ import {
 import { localizePath } from "astro-i18next";
 const parser = new MarkdownIt();
 
-export async function get(context) {
+export async function get(context: APIContext) {
   const kijis = await getCollection(
     "kiji",
     ({ slug }) => languageFromFilename(slug) === "en"
@@ -27,10 +28,10 @@ export async function get(context) {
     title: "One Kiji",
     description:
       "One Kiji summarizes the single most important piece of news published every day.",
-    site: context.site,
+    site: context.site!.toString(),
     items: kijis.map((kiji) => ({
       title: getTitleMd(kiji.body),
-      pubDate: filenameToDateString(kiji.slug),
+      pubDate: new Date(filenameToDateString(kiji.slug)),
       description: getFirstParagraphMd(kiji.body),
       link: localizePath(`/${filenameToDateString(kiji.slug)}`),
       content: sanitizeHtml(parser.render(kiji.body)),
