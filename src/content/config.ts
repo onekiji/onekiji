@@ -16,7 +16,8 @@ const tags = [
   "meta",
   "japan",
   "spain",
-  "cyber conflicts"
+  "cyber conflicts",
+  "hong kong"
 ];
 
 const kiji = defineCollection({
