@@ -11,6 +11,7 @@ html {
   --blackrgb: 90, 90, 90;
   --darkwhite: #f2f2f7;
   --darkwhitergb: 242, 242, 247;
+  --button-hover-bg: #ebebf0;
   background-color: var(--white);
   color: var(--black);
   font-family: "Helvetica Neue", sans-serif;
@@ -25,6 +26,7 @@ html {
   );
   background-color: var(--darkwhite);
   --mobile-margin: 24px;
+  --button-radius: 8px;
 }
 
 body {

@@ -1,0 +1,108 @@
+---
+import i18next from "i18next";
+
+const languages = i18next.languages;
+
+const languageInLanguage: {
+  [key: string]: string;
+} = {
+  en: "English",
+  ja: "日本語",
+};
+---
+
+<div id="language-selector">
+  <input id="language" aria-label="Show language selector" type="checkbox" />
+  <label for="language">
+    <img src="/assets/language.png" aria-hidden />
+    {languageInLanguage[i18next.language]}</label
+  >
+  <ul>
+    {
+      languages.map(
+        (language) =>
+          i18next.language !== language && (
+            <li>
+              <a href={`/${language === "en" ? "" : language}`}>
+                {languageInLanguage[language]}
+              </a>
+            </li>
+          )
+      )
+    }
+  </ul>
+</div>
+<style lang="scss">
+  #language-selector {
+    position: fixed;
+    top: 0.7rem;
+    left: 1rem;
+    z-index: 10;
+    user-select: none;
+    ul {
+      display: none;
+      position: absolute;
+      list-style: none;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      border-bottom-left-radius: var(--button-radius);
+      border-bottom-right-radius: var(--button-radius);
+      li {
+        &:first {
+          border-top-right-radius: var(--button-radius);
+          border-top-left-radius: var(--button-radius);
+        }
+        &:last-of-type {
+          border-bottom-left-radius: var(--button-radius);
+          border-bottom-right-radius: var(--button-radius);
+        }
+        width: 100%;
+        text-align: center;
+        padding: 0.4rem 0.1rem;
+        background: var(--button-hover-bg);
+        &:focus-within {
+          filter: brightness(0.8);
+        }
+        a {
+          text-decoration: none;
+          &:hover,
+          &:focus-visible {
+            outline: none;
+            color: var(--black);
+          }
+        }
+      }
+    }
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--button-radius);
+      img {
+        height: 1em;
+        width: auto;
+      }
+    }
+    input {
+      opacity: 0;
+      position: fixed;
+      top: -999px;
+      left: -999px;
+      &:checked ~ ul {
+        display: block;
+      }
+      &:checked ~ label {
+        border-radius: var(--button-radius) var(--button-radius) 0 0;
+      }
+      &:hover + label,
+      &:focus-visible + label,
+      &:checked ~ label {
+        background: var(--button-hover-bg);
+      }
+    }
+  }
+</style>
