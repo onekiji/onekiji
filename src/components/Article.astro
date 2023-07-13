@@ -38,7 +38,7 @@ if (languageFromFilename(kiji.slug) !== "en") {
 
 <ArticleLayout title={title} description={description} image={heroImage}>
   <div class="time-container">
-    <a href={localizePath("/archive")} aria-label={t("footer.archive-aria")}>
+    <a href={localizePath("/archive")} aria-hidden>
       <FormatDate date={new Date(filenameToDateString(kiji.slug))} />
     </a>
   </div>
