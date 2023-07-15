@@ -2,26 +2,28 @@ import { defineCollection, z } from "astro:content";
 
 const tags = [
   "china",
-  "conflicts",
-  "environment",
   "france",
   "israel",
   "palestine",
-  "politics",
   "russia",
-  "tech",
   "ukraine",
   "usa",
   "mali",
-  "meta",
   "japan",
   "spain",
-  "cyber conflicts",
   "hong kong",
+  "north korea",
+  "india",
+  "conflicts",
+  "environment",
+  "politics",
+  "tech",
+  "meta",
+  "cyber conflicts",
   "g7",
   "nato",
-  "north korea",
-  "strikes"
+  "strikes",
+  "space"
 ];
 
 const kiji = defineCollection({
