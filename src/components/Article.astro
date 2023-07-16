@@ -19,8 +19,7 @@ type Props = CollectionEntry<"kiji"> & {
 
 const kiji = Astro.props;
 
-const { heroImage } = kiji.data;
-let { sources } = kiji.data;
+let { heroImage, sources } = kiji.data;
 const { Content } = await kiji.render();
 const title = kiji.title || getTitleMd(kiji.body);
 const description = kiji.description || getFirstParagraphMd(kiji.body);
@@ -34,9 +33,21 @@ if (languageFromFilename(kiji.slug) !== "en") {
   }
   sources = originalKiji.data.sources;
 }
+
+const indexPages = i18next.languages.map((lng) =>
+  lng === "en" ? "/" : `/${lng}/`
+);
+
+if (indexPages.includes(Astro.url.pathname)) {
+  heroImage = "/placeholder-social.png";
+}
 ---
 
-<ArticleLayout title={title} description={description} image={heroImage}>
+<ArticleLayout
+  title={title}
+  description={description}
+  image={heroImage || `/og/${kiji.slug}.png`}
+>
   <div class="time-container">
     <a href={localizePath("/archive")} aria-hidden>
       <FormatDate date={new Date(filenameToDateString(kiji.slug))} />
