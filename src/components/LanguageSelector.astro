@@ -13,10 +13,11 @@ const languageInLanguage: {
 
 <div id="language-selector">
   <input id="language" aria-label="Show language selector" type="checkbox" />
-  <label for="language">
+  <label for="language" id="button">
     <img src="/assets/language.png" aria-hidden />
     {languageInLanguage[i18next.language]}</label
   >
+  <label for="language" aria-hidden id="overlay"></label>
   <ul>
     {
       languages.map(
@@ -75,7 +76,7 @@ const languageInLanguage: {
         }
       }
     }
-    label {
+    #button {
       position: relative;
       display: flex;
       align-items: center;
@@ -95,12 +96,19 @@ const languageInLanguage: {
       &:checked ~ ul {
         display: block;
       }
-      &:checked ~ label {
+      &:checked ~ #button {
         border-radius: var(--button-radius) var(--button-radius) 0 0;
       }
-      &:hover + label,
-      &:focus-visible + label,
-      &:checked ~ label {
+      &:checked ~ #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+      &:hover + #button,
+      &:focus-visible + #button,
+      &:checked ~ #button {
         background: var(--button-hover-bg);
       }
     }
