@@ -51,7 +51,7 @@ const languageInLanguage: {
       border-bottom-left-radius: var(--button-radius);
       border-bottom-right-radius: var(--button-radius);
       li {
-        &:first-of-type {
+        &:first {
           border-top-right-radius: var(--button-radius);
           border-top-left-radius: var(--button-radius);
         }
@@ -110,36 +110,6 @@ const languageInLanguage: {
       &:focus-visible + #button,
       &:checked ~ #button {
         background: var(--button-hover-bg);
-      }
-    }
-  }
-  @media screen and (max-width: 768px) {
-    #language-selector {
-      position: relative;
-      top: auto;
-      left: auto;
-      #overlay {
-        display: none;
-      }
-      ul {
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-        li {
-          &:first-of-type {
-            border-top-right-radius: var(--button-radius);
-            border-top-left-radius: var(--button-radius);
-          }
-          &:last-of-type {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-        }
-      }
-      input {
-        &:checked ~ #button {
-          border-radius: 0 0 var(--button-radius) var(--button-radius);
-        }
       }
     }
   }
