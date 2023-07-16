@@ -26,6 +26,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanitize-html": "^2.11.0",
+    "satori": "^0.10.1",
+    "sharp": "^0.32.3",
     "zod": "^3.21.4"
   },
   "devDependencies": {
