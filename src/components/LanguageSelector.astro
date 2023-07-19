@@ -9,6 +9,12 @@ const languageInLanguage: {
   en: "English",
   ja: "日本語",
 };
+
+let currentPathArr = Astro.url.pathname.split("/");
+if (languages.includes(currentPathArr[1])) {
+  currentPathArr.splice(0, 2);
+}
+const currentPath = currentPathArr.join("/");
 ---
 
 <div id="language-selector">
@@ -24,7 +30,7 @@ const languageInLanguage: {
         (language) =>
           i18next.language !== language && (
             <li>
-              <a href={`/${language === "en" ? "" : language}`}>
+              <a href={`/${language === "en" ? "" : language}${currentPath}`}>
                 {languageInLanguage[language]}
               </a>
             </li>
