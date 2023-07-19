@@ -12,6 +12,10 @@
   a {
     padding: 1rem;
     text-decoration: none;
+    &:focus-visible {
+      outline: none;
+      background: var(--button-hover-bg);
+    }
   }
 }
 
@@ -40,5 +44,11 @@ p {
   flex-direction: column;
   ul {
     margin-left: 1em;
+  }
+  a {
+    &:focus-visible {
+      outline: none;
+      filter: brightness(2);
+    }
   }
 }
