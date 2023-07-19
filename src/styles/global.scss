@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
+:root {
   --white: #fbfbfc;
   --whitergb: 251, 251, 252;
   --black: #5a5a5a;
@@ -12,6 +12,11 @@ html {
   --darkwhite: #f2f2f7;
   --darkwhitergb: 242, 242, 247;
   --button-hover-bg: #ebebf0;
+  --mobile-margin: 24px;
+  --button-radius: 8px;
+}
+
+html {
   background-color: var(--white);
   color: var(--black);
   font-family: "Helvetica Neue", sans-serif;
@@ -25,8 +30,6 @@ html {
     var(--white) 100%
   );
   background-color: var(--darkwhite);
-  --mobile-margin: 24px;
-  --button-radius: 8px;
 }
 
 body {
