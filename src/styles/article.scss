@@ -7,6 +7,7 @@
   top: 0;
   left: 0;
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   background-color: rgba(var(--darkwhitergb), 0.8);
   a {
     padding: 1rem;
