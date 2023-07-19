@@ -1,0 +1,98 @@
+---
+import { t } from "i18next";
+
+interface Prop {
+  prev: string;
+  next: string;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<div id="pagination">
+  {
+    prev ? (
+      <a href={prev} aria-label={t("common.previous-page-aria")}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            d="m15 6l-6 6l6 6"
+          />
+        </svg>
+      </a>
+    ) : (
+      <a class="disabled">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            d="m15 6l-6 6l6 6"
+          />
+        </svg>
+      </a>
+    )
+  }
+  {
+    next ? (
+      <a href={next} aria-label={t("common.next-page-aria")}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            d="m9 6l6 6l-6 6"
+          />
+        </svg>
+      </a>
+    ) : (
+      <a class="disabled">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            d="m9 6l6 6l-6 6"
+          />
+        </svg>
+      </a>
+    )
+  }
+</div>
+<style lang="scss">
+  #pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    max-width: 300px;
+    svg {
+      height: 32px;
+      width: 32px;
+    }
+    a {
+      height: 32px;
+      width: 32px;
+      text-decoration: none;
+      border-radius: var(--button-radius);
+      &:hover,
+      &:focus-visible {
+        background: var(--button-hover-bg);
+        filter: none;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    .disabled {
+      cursor: default;
+      opacity: 0.5;
+      &:hover,
+      &:focus-visible {
+        background: none;
+      }
+    }
+  }
+</style>

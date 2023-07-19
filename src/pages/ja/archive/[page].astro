@@ -7,6 +7,7 @@ import type { CollectionEntry } from "astro:content";
 import FormatDate from "@/components/FormatDate.astro";
 import { localizePath } from "astro-i18next";
 import PageLayout from "@/layouts/PageLayout.astro";
+import PaginationButtons from "@/components/PaginationButtons.astro";
 
 changeLanguage("ja");
 
@@ -62,58 +63,7 @@ const [prev, next] = [page.url.prev, page.url.next];
       }
     </tbody>
   </table>
-  <div id="pagination">
-    {
-      prev ? (
-        <a href={prev} aria-label={t("common.previous-page-aria")}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              d="m15 6l-6 6l6 6"
-            />
-          </svg>
-        </a>
-      ) : (
-        <a class="disabled">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              d="m15 6l-6 6l6 6"
-            />
-          </svg>
-        </a>
-      )
-    }
-    {
-      next ? (
-        <a href={next} aria-label={t("common.next-page-aria")}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              d="m9 6l6 6l-6 6"
-            />
-          </svg>
-        </a>
-      ) : (
-        <a class="disabled">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              d="m9 6l6 6l-6 6"
-            />
-          </svg>
-        </a>
-      )
-    }
-  </div>
+  <PaginationButtons prev={prev} next={next} />
   <style is:global>
     main {
       display: flex;
@@ -145,31 +95,6 @@ const [prev, next] = [page.url.prev, page.url.next];
       }
       &:has(a:focus-visible) {
         background: var(--button-hover-bg);
-      }
-    }
-    #pagination {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-      max-width: 300px;
-      svg {
-        height: 32px;
-        width: 32px;
-      }
-      a {
-        height: 32px;
-        width: 32px;
-        text-decoration: none;
-        border-radius: var(--button-radius);
-        &:hover,
-        &:focus-visible {
-          background: var(--button-hover-bg);
-        }
-      }
-      .disabled {
-        cursor: not-allowed;
-        opacity: 0.5;
       }
     }
   </style>
