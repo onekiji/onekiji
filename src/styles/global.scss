@@ -1,3 +1,24 @@
+@function hexToRgb($value) {
+  @return (red($value), green($value), blue($value));
+}
+
+$white: #fbfbfc;
+$black: #5a5a5a;
+$darkwhite: #f2f2f7;
+$button-hover-bg: #ebebf0;
+
+:root {
+  --white: #{$white};
+  --whitergb: #{hexToRgb($white)};
+  --black: #{$black};
+  --blackrgb: #{hexToRgb($black)};
+  --darkwhite: #{$darkwhite};
+  --darkwhitergb: #{hexToRgb($darkwhite)};
+  --button-hover-bg: #{$button-hover-bg};
+  --mobile-margin: 24px;
+  --button-radius: 8px;
+}
+
 * {
   margin: 0;
   padding: 0;
