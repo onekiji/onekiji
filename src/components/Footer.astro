@@ -47,6 +47,10 @@ import { t } from "i18next";
     a {
       text-decoration: none;
       text-transform: capitalize;
+      &:focus-visible {
+        outline: none;
+        filter: brightness(2);
+      }
     }
     .divider {
       width: 1px;
