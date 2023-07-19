@@ -7,7 +7,7 @@ export async function getOgImage(title: string) {
   const japaneseFontData = (await getFontData(
     "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700"
   )) as ArrayBuffer;
-  const fontSize = 50;
+  const fontSize = 60;
   const svg = await satori(
     <main
       style={{
