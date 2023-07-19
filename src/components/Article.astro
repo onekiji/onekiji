@@ -49,7 +49,7 @@ if (indexPages.includes(Astro.url.pathname)) {
   image={heroImage || `/og/${kiji.slug}.png`}
 >
   <div class="time-container">
-    <a href={localizePath("/archive")} aria-hidden>
+    <a href={localizePath("/archive/1")} aria-hidden>
       <FormatDate date={new Date(filenameToDateString(kiji.slug))} />
     </a>
   </div>

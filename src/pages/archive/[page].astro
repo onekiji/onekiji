@@ -1,0 +1,176 @@
+---
+import { languageFromFilename, filenameToDateString, getTitleMd } from "@/util";
+import { getCollection } from "astro:content";
+import i18next, { t, changeLanguage } from "i18next";
+import type { GetStaticPathsOptions, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import FormatDate from "@/components/FormatDate.astro";
+import { localizePath } from "astro-i18next";
+import PageLayout from "@/layouts/PageLayout.astro";
+
+changeLanguage("en");
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const archive = await getCollection(
+    "kiji",
+    ({ slug }) => languageFromFilename(slug) === i18next.language
+  ).then((posts) =>
+    posts.sort((a, b) =>
+      new Date(filenameToDateString(b.slug)) >
+      new Date(filenameToDateString(a.slug))
+        ? 1
+        : -1
+    )
+  );
+  return paginate(archive, {
+    pageSize: 10,
+  });
+}
+
+const page = Astro.props.page as Page<CollectionEntry<"kiji">>;
+const [prev, next] = [page.url.prev, page.url.next];
+---
+
+<PageLayout title={t("archive.title")} description={t("archive.description")}>
+  <h1>{t("common.archive")}</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>{t("common.date")}</th>
+        <th>{t("common.title")}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        page.data.map((kiji) => (
+          <tr>
+            <td>
+              <FormatDate date={new Date(filenameToDateString(kiji.slug))} />
+            </td>
+            <td>
+              <a
+                href={localizePath(filenameToDateString(kiji.slug))}
+                aria-label={t("archive.kiji-from-aria", {
+                  date: filenameToDateString(kiji.slug),
+                })}
+              >
+                {getTitleMd(kiji.body)}
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <div id="pagination">
+    {
+      prev ? (
+        <a href={prev} aria-label={t("common.previous-page-aria")}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              d="m15 6l-6 6l6 6"
+            />
+          </svg>
+        </a>
+      ) : (
+        <a class="disabled">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              d="m15 6l-6 6l6 6"
+            />
+          </svg>
+        </a>
+      )
+    }
+    {
+      next ? (
+        <a href={next} aria-label={t("common.next-page-aria")}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              d="m9 6l6 6l-6 6"
+            />
+          </svg>
+        </a>
+      ) : (
+        <a class="disabled">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              d="m9 6l6 6l-6 6"
+            />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+  <style is:global>
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+  <style lang="scss">
+    h1 {
+      width: 100%;
+    }
+    h1,
+    th {
+      text-transform: capitalize;
+    }
+    table {
+      border-collapse: collapse;
+      text-align: left;
+      width: 100%;
+    }
+    th,
+    td {
+      border: 1px solid var(--black);
+      padding: 0.5rem;
+    }
+    tr {
+      a:focus-visible {
+        outline: none;
+      }
+      &:has(a:focus-visible) {
+        background: var(--button-hover-bg);
+      }
+    }
+    #pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      max-width: 300px;
+      svg {
+        height: 32px;
+        width: 32px;
+      }
+      a {
+        height: 32px;
+        width: 32px;
+        text-decoration: none;
+        border-radius: var(--button-radius);
+        &:hover,
+        &:focus-visible {
+          background: var(--button-hover-bg);
+        }
+      }
+      .disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+  </style>
+</PageLayout>

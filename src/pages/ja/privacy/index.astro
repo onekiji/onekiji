@@ -9,15 +9,28 @@ import { formatDate } from "@/components/FormatDate.astro";
 
 changeLanguage("ja");
 
-let latestPrivacyPolicy = await getCollection("privacy", ({ slug }) => languageFromFilename(slug) === i18next.language).then((collection) => collection.sort((a, b) => new Date(filenameToDateString(a.slug)) <
-    new Date(filenameToDateString(b.slug))
-    ? 1
-    : -1)[0]);
-if (!latestPrivacyPolicy) {
-    latestPrivacyPolicy = await getCollection("privacy").then((collection) => collection.sort((a, b) => new Date(filenameToDateString(a.slug)) <
-        new Date(filenameToDateString(b.slug))
+let latestPrivacyPolicy = await getCollection(
+  "privacy",
+  ({ slug }) => languageFromFilename(slug) === i18next.language
+).then(
+  (collection) =>
+    collection.sort((a, b) =>
+      new Date(filenameToDateString(a.slug)) <
+      new Date(filenameToDateString(b.slug))
         ? 1
-        : -1)[0]);
+        : -1
+    )[0]
+);
+if (!latestPrivacyPolicy) {
+  latestPrivacyPolicy = await getCollection("privacy").then(
+    (collection) =>
+      collection.sort((a, b) =>
+        new Date(filenameToDateString(a.slug)) <
+        new Date(filenameToDateString(b.slug))
+          ? 1
+          : -1
+      )[0]
+  );
 }
 const { Content } = await latestPrivacyPolicy.render();
 ---
@@ -28,7 +41,7 @@ const { Content } = await latestPrivacyPolicy.render();
     <Trans i18nKey="privacy.archive-text">
       The archive of all previous privacy policy can be checked at the
       <a
-        href={localizePath("/privacy/archive")}
+        href={localizePath("/privacy/archive/1")}
         aria-label={t("privacy.archive-aria")}
       >
         archive of the privacy policy pages
