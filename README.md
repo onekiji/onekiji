@@ -9,3 +9,22 @@ Consuming news shouldn’t be distracting, and shouldn’t make you feel like yo
 We don’t prey on reader’s attentions and psyche for our own benefits.
 
 One Kiji is an open source project.
+
+## Analytics
+
+One Kiji uses [Vercel Analytics](https://vercel.com/docs/analytics) to collect anonymous usage data.
+
+One Kiji is GDPR compliant.
+
+Check our [Privacy Policy](https://onekiji.com/privacy) for more information.
+
+## License
+
+One Kiji is licensed under the [MIT License](./LICENSE).
+
+## Translations
+
+One Kiji is available in the following languages:
+
+- [English](https://onekiji.com)
+- [Japanese](https://onekiji.com/ja)
