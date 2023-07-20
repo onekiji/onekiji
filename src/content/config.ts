@@ -14,14 +14,16 @@ const tags = [
   "hong kong",
   "north korea",
   "india",
+  "greece",
+  "eu",
+  "g7",
+  "nato",
   "conflicts",
   "environment",
   "politics",
   "tech",
   "meta",
   "cyber conflicts",
-  "g7",
-  "nato",
   "strikes",
   "space"
 ];
