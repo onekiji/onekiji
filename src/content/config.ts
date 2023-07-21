@@ -15,6 +15,7 @@ const tags = [
   "north korea",
   "india",
   "greece",
+  "united kingdom",
   "eu",
   "g7",
   "nato",
