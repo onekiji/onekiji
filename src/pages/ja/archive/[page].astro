@@ -8,6 +8,7 @@ import FormatDate from "@/components/FormatDate.astro";
 import { localizePath } from "astro-i18next";
 import PageLayout from "@/layouts/PageLayout.astro";
 import PaginationButtons from "@/components/PaginationButtons.astro";
+import Spacer from "@/components/Spacer.astro";
 
 changeLanguage("ja");
 
@@ -63,6 +64,7 @@ const [prev, next] = [page.url.prev, page.url.next];
       }
     </tbody>
   </table>
+  <Spacer />
   <PaginationButtons prev={prev} next={next} />
   <style is:global>
     main {
