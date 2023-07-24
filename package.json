@@ -14,26 +14,28 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/react": "^2.2.1",
     "@astrojs/rss": "^2.4.3",
-    "@astrojs/sitemap": "^1.3.3",
-    "@astrojs/vercel": "^3.7.0",
+    "@astrojs/sitemap": "^1.4.0",
+    "@astrojs/vercel": "^3.7.4",
     "@headlessui/react": "^1.7.15",
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "astro": "^2.8.1",
-    "astro-compress": "^1.1.47",
-    "astro-i18next": "^1.0.0-beta.21",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "astro": "^2.9.1",
+    "astro-compress": "^1.1.49",
+    "astro-i18next": "1.0.0-beta.21",
+    "i18next": "^23.2.11",
+    "i18next-fs-backend": "^2.1.5",
     "markdown-it": "^13.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanitize-html": "^2.11.0",
     "satori": "^0.10.1",
-    "sharp": "^0.32.3",
+    "sharp": "^0.32.4",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
     "@types/sanitize-html": "^2.9.0",
-    "sass": "^1.63.6"
+    "sass": "^1.64.1"
   },
   "packageManager": "pnpm@8.6.0"
 }
