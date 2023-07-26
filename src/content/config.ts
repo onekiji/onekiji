@@ -16,6 +16,7 @@ const tags = [
   "india",
   "greece",
   "united kingdom",
+  "tonga",
   "eu",
   "g7",
   "nato",
