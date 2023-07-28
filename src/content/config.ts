@@ -18,6 +18,7 @@ const tags = [
   "united kingdom",
   "tonga",
   "niger",
+  "africa",
   "eu",
   "g7",
   "nato",
