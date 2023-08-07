@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
-import compress from "astro-compress";
 import mdx from "@astrojs/mdx";
 import vercel from "@astrojs/vercel/static";
 
@@ -26,6 +25,5 @@ export default defineConfig({
     }),
     mdx(),
     react(),
-    compress(),
   ],
 });
