@@ -22,6 +22,7 @@ const tags = [
   "poland",
   "belarus",
   "philippines",
+  "ecuador",
   "africa",
   "eu",
   "g7",
