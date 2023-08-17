@@ -25,6 +25,7 @@ const tags = [
   "ecuador",
   "iran",
   "afghanistan",
+  "canada",
   "africa",
   "eu",
   "g7",
