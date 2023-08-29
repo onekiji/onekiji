@@ -42,7 +42,8 @@ const tags = [
   "meta",
   "cyber conflicts",
   "strikes",
-  "space"
+  "space",
+  "religion"
 ];
 
 const kiji = defineCollection({
