@@ -30,6 +30,7 @@ const tags = [
   "ethiopia",
   "saudi arabia",
   "zimbabwe",
+  "gabon",
   "africa",
   "eu",
   "g7",
