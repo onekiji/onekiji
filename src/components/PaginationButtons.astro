@@ -23,7 +23,7 @@ const { prev, next } = Astro.props;
         </svg>
       </a>
     ) : (
-      <a class="disabled">
+      <a tabindex="-1" aria-hidden class="disabled">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path
             fill="none"
@@ -48,7 +48,7 @@ const { prev, next } = Astro.props;
         </svg>
       </a>
     ) : (
-      <a class="disabled">
+      <a tabindex="-1" aria-hidden class="disabled">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path
             fill="none"
