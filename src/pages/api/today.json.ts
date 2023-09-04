@@ -9,7 +9,7 @@ export async function get(context: APIContext) {
     ({ slug }) => languageFromFilename(slug) === "en"
   ).then(
     (posts) =>
-      posts.toSorted((a, b) =>
+      posts.sort((a, b) =>
         new Date(filenameToDateString(b.slug)) >
         new Date(filenameToDateString(a.slug))
           ? 1
