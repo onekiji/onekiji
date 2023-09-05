@@ -32,6 +32,7 @@ const tags = [
   "zimbabwe",
   "gabon",
   "turkey",
+  "cuba",
   "africa",
   "eu",
   "g7",
@@ -45,7 +46,8 @@ const tags = [
   "cyber conflicts",
   "strikes",
   "space",
-  "religion"
+  "religion",
+  "human rights"
 ];
 
 const kiji = defineCollection({
