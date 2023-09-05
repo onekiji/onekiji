@@ -35,7 +35,7 @@ export function languageFromFilename(filename: string) {
 export function kijiToJson(kiji: Kiji) {
   return new Response(
     JSON.stringify({
-      title: getTitleMd(kiji.slug),
+      title: getTitleMd(kiji.body),
       pubDate: filenameToDateString(kiji.slug),
       content: sanitizeHtml(parser.render(kiji.body)),
     }),
