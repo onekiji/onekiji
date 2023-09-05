@@ -10,15 +10,15 @@ function breakMd(md: string) {
 }
 
 export function getTitleMd(markdown: string) {
-  return breakMd(markdown)[0].replace("# ", "");
+  return breakMd(markdown)[0].replace("# ", "").trim();
 }
 
 export function removeTitleMd(markdown: string) {
-  return breakMd(markdown).slice(1).join("\n\n");
+  return breakMd(markdown).slice(1).join("\n\n").trim();
 }
 
 export function getFirstParagraphMd(markdown: string) {
-  return breakMd(markdown)[1];
+  return breakMd(markdown)[1].trim();
 }
 
 export function readingTimeMd(markdown: string) {
