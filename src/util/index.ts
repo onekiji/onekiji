@@ -13,6 +13,10 @@ export function getTitleMd(markdown: string) {
   return breakMd(markdown)[0].replace("# ", "");
 }
 
+export function removeTitleMd(markdown: string) {
+  return breakMd(markdown).slice(1).join("\n\n");
+}
+
 export function getFirstParagraphMd(markdown: string) {
   return breakMd(markdown)[1];
 }
@@ -37,7 +41,7 @@ export function kijiToJson(kiji: Kiji) {
     JSON.stringify({
       title: getTitleMd(kiji.body),
       pubDate: filenameToDateString(kiji.slug),
-      content: sanitizeHtml(parser.render(kiji.body)),
+      content: removeTitleMd(kiji.body),
     }),
     {
       headers: {
