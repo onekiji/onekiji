@@ -1,5 +1,4 @@
 import type { CollectionEntry } from "astro:content";
-import sanitizeHtml from "sanitize-html";
 import markdownIt from "markdown-it";
 
 const parser = markdownIt();
