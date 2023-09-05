@@ -1,7 +1,6 @@
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
-import { kijiToJson } from "../../util/index";
-import { filenameToDateString, languageFromFilename } from "@/util";
+import { filenameToDateString, languageFromFilename, kijiToJson } from "@/util";
 
 export async function get(context: APIContext) {
   const kiji = await getCollection(
