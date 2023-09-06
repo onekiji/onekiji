@@ -41,6 +41,7 @@ export function kijiToJson(kiji: Kiji) {
       title: getTitleMd(kiji.body),
       pubDate: filenameToDateString(kiji.slug),
       content: removeTitleMd(kiji.body),
+      sources: kiji.data.sources,
     }),
     {
       headers: {
