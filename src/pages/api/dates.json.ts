@@ -6,7 +6,14 @@ export async function get(context: APIContext) {
   const kijis = await getCollection(
     "kiji",
     ({ slug }) => languageFromFilename(slug) === "en"
-  ).then((posts) => posts);
+  ).then((posts) =>
+    posts.sort((a, b) =>
+      new Date(filenameToDateString(b.slug)) >
+      new Date(filenameToDateString(a.slug))
+        ? 1
+        : -1
+    )
+  );
   return new Response(
     JSON.stringify(
       kijis.map((kiji) => ({
