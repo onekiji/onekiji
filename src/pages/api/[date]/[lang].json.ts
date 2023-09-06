@@ -12,7 +12,22 @@ export async function get(context: APIContext) {
     ({ slug }) =>
       languageFromFilename(slug) === lang && filenameToDateString(slug) === date
   ).then((posts) => posts[0]);
-  return kijiToJson(kiji);
+  let sources = kiji.data.sources;
+  if (lang !== "en") {
+    sources = await getCollection(
+      "kiji",
+      ({ slug }) =>
+        languageFromFilename(slug) === "en" &&
+        filenameToDateString(slug) === filenameToDateString(kiji.slug)
+    ).then((posts) => posts[0].data.sources);
+  }
+  return kijiToJson({
+    ...kiji,
+    data: {
+      ...kiji.data,
+      sources,
+    },
+  });
 }
 
 export async function getStaticPaths() {
