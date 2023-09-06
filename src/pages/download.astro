@@ -1,0 +1,20 @@
+---
+import { changeLanguage, t } from "i18next";
+import PageLayout from "@/layouts/PageLayout.astro";
+
+changeLanguage("en");
+---
+
+<PageLayout title={t("download.title")} description={t("download.description")}>
+  <a href="https://apps.apple.com/us/app/one-kiji/id6463562774">App Store</a>
+</PageLayout>
+<style is:global>
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  a:focus-visible {
+    outline: none;
+  }
+</style>
