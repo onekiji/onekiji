@@ -4,10 +4,15 @@
     "kiji-from-aria": "Kiji from {{date}}",
     "title": "Archive - One Kiji"
   },
+  "download": {
+    "description": "Download native One Kiji applications",
+    "title": "Download - One Kiji"
+  },
   "common": {
     "about": "about",
     "archive": "archive",
     "date": "date",
+    "download": "download",
     "next-page-aria": "Next page",
     "one-kiji": "One Kiji",
     "previous-page-aria": "Previous page",

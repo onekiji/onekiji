@@ -4,10 +4,15 @@
     "kiji-from-aria": "{{date}}の記事",
     "title": "アーカイブ - ワンキジ"
   },
+  "download": {
+    "description": "ワンキジiOS版をダウンロード",
+    "title": "ダウンロード - ワンキジ"
+  },
   "common": {
     "about": "ワンキジについて",
     "archive": "過去の記事",
     "date": "日付",
+    "download": "ダウンロード",
     "next-page-aria": "次のページ",
     "one-kiji": "ワンキジ",
     "previous-page-aria": "前のページ",
