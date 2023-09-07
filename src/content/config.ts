@@ -38,6 +38,7 @@ const tags = [
   "g7",
   "nato",
   "un",
+  "g20",
   "conflicts",
   "environment",
   "politics",
