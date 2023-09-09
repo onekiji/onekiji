@@ -18,6 +18,7 @@ const tags = [
   "japan",
   "mali",
   "mexico",
+  "morocco",
   "niger",
   "north korea",
   "pakistan",
