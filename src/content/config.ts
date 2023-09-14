@@ -16,7 +16,7 @@ const tags = [
   "iran",
   "israel",
   "japan",
-  "lybia",
+  "libya",
   "mali",
   "mexico",
   "morocco",
