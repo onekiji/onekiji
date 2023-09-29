@@ -24,6 +24,7 @@ const tags = [
   "mali",
   "mexico",
   "morocco",
+  "netherlands",
   "niger",
   "north korea",
   "pakistan",
