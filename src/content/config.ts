@@ -32,6 +32,7 @@ const tags = [
   "palestine",
   "philippines",
   "poland",
+  "qatar",
   "romania",
   "russia",
   "saudi arabia",
