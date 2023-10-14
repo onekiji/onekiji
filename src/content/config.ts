@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 const tags = [
   "afghanistan",
   "armenia",
+  "australia",
   "azerbaijan",
   "belarus",
   "bulgaria",
