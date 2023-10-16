@@ -11,6 +11,7 @@ const tags = [
   "china",
   "cuba",
   "ecuador",
+  "egypt",
   "ethiopia",
   "france",
   "gabon",
