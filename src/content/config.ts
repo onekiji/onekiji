@@ -19,6 +19,7 @@ const tags = [
   "greece",
   "hong kong",
   "hungary",
+  "iceland",
   "india",
   "iran",
   "iraq",
