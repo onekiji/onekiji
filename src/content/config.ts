@@ -52,6 +52,7 @@ const tags = [
   "united kingdom",
   "usa",
   "vietnam",
+  "yemen",
   "zimbabwe",
   "africa",
   "eu",
