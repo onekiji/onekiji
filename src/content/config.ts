@@ -23,6 +23,7 @@ const tags = [
   "india",
   "iran",
   "iraq",
+  "ireland",
   "israel",
   "japan",
   "kosovo",
@@ -67,6 +68,7 @@ const tags = [
   "meta",
   "politics",
   "religion",
+  "riots",
   "space",
   "strikes",
   "tech"
