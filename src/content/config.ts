@@ -43,6 +43,7 @@ const tags = [
   "russia",
   "saudi arabia",
   "serbia",
+  "sierra leone",
   "slovakia",
   "south korea",
   "spain",
