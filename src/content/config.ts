@@ -51,6 +51,7 @@ const tags = [
   "tonga",
   "turkey",
   "ukraine",
+  "united arab emirates",
   "united kingdom",
   "usa",
   "vietnam",
