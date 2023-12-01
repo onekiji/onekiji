@@ -58,6 +58,7 @@ const tags = [
   "yemen",
   "zimbabwe",
   "africa",
+  "covid19",
   "eu",
   "g7",
   "g20",
