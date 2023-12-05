@@ -33,6 +33,7 @@ const tags = [
   "morocco",
   "netherlands",
   "niger",
+  "nigeria",
   "north korea",
   "pakistan",
   "palestine",
