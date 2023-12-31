@@ -1,5 +1,8 @@
 # One Kiji
 
+> [!IMPORTANT]  
+> This project has been archived due to lack of page visits. Please cotact Yumi if you would like this project to be continued.
+
 ![One Kiji](./public/placeholder-social.png)
 
 One Kiji summarizes the single most important piece of news published every day.
